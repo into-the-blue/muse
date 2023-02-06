@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "ts-node ./index.ts",
     "build": "rm -rf dist && tsc"
   },
   "keywords": [],
