@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { WEB_URL } from './constants';
+import Jsdom from 'jsdom';
 
-export const getHtmlFromUrl = async (url: string) => {
+export const getHtmlFromUrl = async (url: string): Promise<string> => {
   const res = await axios.get(url);
-  console.log(res.data);
+  return res.data;
 };
