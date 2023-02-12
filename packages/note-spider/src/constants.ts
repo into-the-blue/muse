@@ -1,5 +1,9 @@
 export const WEB_URL = {
-  pre2012: {},
+  pre2012: {
+    woodwinds: {
+      flute: 'https://theremin.music.uiowa.edu/MISflute.html',
+    },
+  },
   post2012: {
     woodwinds: {
       flute:
