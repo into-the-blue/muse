@@ -51,6 +51,59 @@ export const WEB_URL = {
         'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISaltoflute2012.html',
       bassFlute:
         'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISBassFlute2012.html',
+      oboe: 'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISOboe2012.html',
+      ebClarinet:
+        'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISEbClarinet2012.html',
+      bbClarinet:
+        'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISBbClarinet2012.html',
+      bassClarinet:
+        'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISBbBassClarinet2012.html',
+      bassoon:
+        'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISBassoon2012.html',
+      sopranoSaxophone:
+        'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISBbSopranoSaxophone2012.html',
+      altoSaxophone:
+        'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISEbAltoSaxophone2012.html',
+    },
+    brass: {
+      frenchHorn: 'https://theremin.music.uiowa.edu/MISFrenchhorn.html',
+      bbTrumpet:
+        'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISBbTrumpet2012.html',
+      tenorTrombone:
+        'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISTenorTrombone2012.html',
+      bassTrombone:
+        'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISBassTrombone2012.html',
+      tuba: 'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISTuba2012.html',
+    },
+    strings: {
+      violin:
+        'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISViolin2012.html',
+      viola:
+        'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISViola2012.html',
+      cello:
+        'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISCello2012.html',
+      doubleBass:
+        'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISDoubleBass2012.html',
+    },
+    percussion: {
+      marimba:
+        'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISMarimba2012.html',
+      xylophone:
+        'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISxylophone2012.html',
+      vibraphone:
+        'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISVibraphone2012.html',
+      bells:
+        'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISBells2012.html',
+      crotales:
+        'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISCrotales2012.html',
+      cymbals:
+        'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISCymbals2012.html',
+      'gongs&tamtams':
+        'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISGongsTamTams2012.html',
+      handPercussion:
+        'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISHandPercussion2012.html',
+      tambourines:
+        'https://theremin.music.uiowa.edu/MIS-Pitches-2012/MISTambourines2012.html',
     },
   },
 };
