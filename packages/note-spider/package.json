@@ -16,10 +16,12 @@
     "cheerio": "1.0.0-rc.12",
     "htmlparser2": "^8.0.1",
     "jsdom": "^21.1.0",
+    "lodash": "^4.17.21",
     "rxjs": "^7.8.0"
   },
   "devDependencies": {
     "@types/jsdom": "^20.0.1",
+    "@types/lodash": "^4.14.191",
     "@types/node": "^18.11.19",
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "@typescript-eslint/parser": "^5.51.0",
