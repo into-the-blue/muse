@@ -5,7 +5,7 @@ export const WEB_URL = {
       altoFlute: 'https://theremin.music.uiowa.edu/MISaltoflute.html',
       bassFlute: 'https://theremin.music.uiowa.edu/MISbassflute.html',
       oboe: 'https://theremin.music.uiowa.edu/MISoboe.html',
-      ebClarinet: 'https://theremin.music.uiowa.edu/MISEbclarinet.html',
+      ebClarinet: 'https://theremin.music.uiowa.edu/MISEbclarinet.html', // special handling
       bbClarinet: 'https://theremin.music.uiowa.edu/MISBbclarinet.html',
       bassClarinet: 'https://theremin.music.uiowa.edu/MISbassclarinet.html',
       bassoon: 'https://theremin.music.uiowa.edu/MISbassoon.html',

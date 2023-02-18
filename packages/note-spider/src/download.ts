@@ -11,7 +11,7 @@ export const saveToLocalStreaming = async (
   return new Promise((resolve, reject) => {
     const filename = url.split('/').pop() as string;
     const targetPath = path.resolve(pth, filename);
-    if (DEBUG_MODE) return;
+    if (DEBUG_MODE) return resolve(true);
     const stream = fs.createWriteStream(targetPath);
     res.data.pipe(stream);
     stream.on('finish', () => {
