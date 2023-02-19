@@ -29,6 +29,14 @@ describe('Scraping pre2012 website', () => {
     const res = await parseUrl(url);
     expect(Object.keys(res)).toHaveLength(10);
   });
+
+  test('Scrape pre2012 header not in P tag', async () => {
+    const url = WEB_URL.pre2012.woodwinds.altoSaxophone;
+    const res = await parseUrl(url);
+    expect(Object.keys(res)).toHaveLength(2);
+    expect(res['with_vibrato']).toHaveLength(9);
+    expect(res['without_vibrato']).toHaveLength(9);
+  });
 });
 
 describe('Scraping post2012 website', () => {
@@ -56,5 +64,13 @@ describe('Scraping post2012 website', () => {
     const url = WEB_URL.post2012.percussion.cymbals;
     const res = await parseUrl(url);
     expect(Object.keys(res)).toHaveLength(10);
+  });
+
+  test('Scrape post2012 header not in P tag', async () => {
+    const url = WEB_URL.post2012.woodwinds.altoSaxophone;
+    const res = await parseUrl(url);
+    expect(Object.keys(res)).toHaveLength(2);
+    expect(res['with_vibrato']).toHaveLength(32);
+    expect(res['without_vibrato']).toHaveLength(32);
   });
 });

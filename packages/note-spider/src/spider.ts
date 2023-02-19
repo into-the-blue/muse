@@ -16,9 +16,13 @@ const _getTitleAndLinks = (
   let currentKey = 'default';
   for (let i = 0; i < children.length; i++) {
     const child = children.item(i);
-    const strongText = child?.querySelector('strong');
-    if (strongText?.textContent) {
-      currentKey = strongText.textContent
+    const headerElm =
+      child?.tagName.toLowerCase() === 'strong'
+        ? child
+        : child?.querySelector('strong');
+
+    if (headerElm?.textContent) {
+      currentKey = headerElm.textContent
         .toLowerCase()
         .trim()
         .replace(':', '')
