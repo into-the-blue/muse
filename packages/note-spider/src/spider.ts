@@ -1,24 +1,37 @@
 import axios from 'axios';
 import { JSDOM } from 'jsdom';
 import path from 'path';
+import { mapValues, mergeWith } from 'lodash';
 
 const getHtmlFromUrl = async (url: string): Promise<string> => {
   const res = await axios.get(url);
   return res.data;
 };
 
-const _getTitleAndLinks = (elm: HTMLTableCellElement): [string, string[]] => {
+const _getTitleAndLinks = (
+  elm: HTMLTableCellElement
+): Record<string, string[]> => {
   const children = elm.children;
-  const keyName = children[0].textContent as string;
-  const links: string[] = [];
-  for (let i = 1; i < children.length; i++) {
+  const res: Record<string, string[]> = {};
+  let currentKey = 'default';
+  for (let i = 0; i < children.length; i++) {
     const child = children.item(i);
+    const strongText = child?.querySelector('strong');
+    if (strongText?.textContent) {
+      currentKey = strongText.textContent
+        .toLowerCase()
+        .trim()
+        .replace(/\s/g, '_');
+    }
     const as = child?.querySelectorAll('a');
     if (as?.length !== 1) continue;
     const href = as.item(0)?.getAttribute('href');
-    if (href) links.push(href);
+    if (href) {
+      if (!res[currentKey]) res[currentKey] = [];
+      res[currentKey].push(href);
+    }
   }
-  return [keyName, links];
+  return res;
 };
 
 const getTable = (dom: JSDOM) => {
@@ -29,10 +42,8 @@ const getTable = (dom: JSDOM) => {
   return table;
 };
 const resolveLink = (url: string, pth: string) => {
-  const baseUrl = url.split('/');
-  const lastItem = baseUrl.pop();
-  if (!!lastItem && !lastItem.includes('.')) baseUrl.push(lastItem);
-  return path.join(baseUrl.join('/'), pth);
+  const cleanedUrl = url.replace(/\/\w+\.\w+$/, '');
+  return path.join(cleanedUrl, pth).replace(/^https?:\//, (s) => s + '/');
 };
 export const parseUrl = async (
   url: string
@@ -45,13 +56,14 @@ export const parseUrl = async (
   columns.forEach((node, key) => {
     if (key > 1) usefulCols.push(node);
   });
-  const res: Record<string, string[]> = Object.fromEntries(
-    usefulCols
-      .map(_getTitleAndLinks)
-      .map(([key, value]) => [
-        key,
-        (value as string[]).map((pth) => resolveLink(url, pth)),
-      ])
+
+  const titleLinksMap = usefulCols
+    .map(_getTitleAndLinks)
+    .reduce((prev, curr) =>
+      mergeWith(prev, curr, (target, src) => target?.concat(src))
+    );
+  const res: Record<string, string[]> = mapValues(titleLinksMap, (value) =>
+    value.map((pth) => resolveLink(url, pth))
   );
   return res;
 };

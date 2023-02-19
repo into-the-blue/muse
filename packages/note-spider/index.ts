@@ -16,7 +16,7 @@ import {
   catchError,
   throwError,
 } from 'rxjs';
-import { forInRight } from 'lodash';
+import { mapValues } from 'lodash';
 
 const BATCH_SIZE = 1;
 const BATCH_MIN_TIME = 10_000;
@@ -63,7 +63,7 @@ const run = async () => {
             ), // each batch, scrape data
             tap(({ categoryUrls, path }) =>
               console.log('Web scraped ', {
-                ...forInRight(categoryUrls, (urls) => urls.length),
+                ...mapValues(categoryUrls, (urls) => urls.length),
                 path,
               })
             ), // each url contains multiple resource urls

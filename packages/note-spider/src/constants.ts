@@ -4,7 +4,7 @@ export const WEB_URL = {
       flute: 'https://theremin.music.uiowa.edu/MISflute.html',
       altoFlute: 'https://theremin.music.uiowa.edu/MISaltoflute.html',
       bassFlute: 'https://theremin.music.uiowa.edu/MISbassflute.html',
-      oboe: 'https://theremin.music.uiowa.edu/MISoboe.html',
+      oboe: 'https://theremin.music.uiowa.edu/MISoboe.html', // no bold title
       ebClarinet: 'https://theremin.music.uiowa.edu/MISEbclarinet.html', // special handling
       bbClarinet: 'https://theremin.music.uiowa.edu/MISBbclarinet.html',
       bassClarinet: 'https://theremin.music.uiowa.edu/MISbassclarinet.html',
@@ -34,11 +34,11 @@ export const WEB_URL = {
       crotales: 'https://theremin.music.uiowa.edu/MIScrotales.html',
       cymbals: 'https://theremin.music.uiowa.edu/MIScymbals.html',
       'gongs&Tamtams': 'https://theremin.music.uiowa.edu/MISgongtamtams.html',
-      handPercussion: 'https://theremin.music.uiowa.edu/MIShandpercussion.html', // need special processing
+      handPercussion: 'https://theremin.music.uiowa.edu/MIShandpercussion.html', // need special processing, multi headers in same column
       tambourines: 'https://theremin.music.uiowa.edu/MIStambourines.html',
     },
     piano: {
-      piano: 'https://theremin.music.uiowa.edu/MISpiano.html',
+      piano: 'https://theremin.music.uiowa.edu/MISpiano.html', // no header, multi columns
       balloonPop: 'https://theremin.music.uiowa.edu/MISballoonpop.html',
       guitar: 'https://theremin.music.uiowa.edu/MISguitar.html',
     },
