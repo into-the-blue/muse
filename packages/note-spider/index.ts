@@ -12,8 +12,9 @@ import {
   forkJoin,
   map,
   take,
-  switchMap,
   tap,
+  catchError,
+  throwError,
 } from 'rxjs';
 import { forInRight } from 'lodash';
 
@@ -33,45 +34,48 @@ const transformCategoryObj = <K extends string, V>(
 };
 
 const run = async () => {
-  let totalBatch: number = 1;
-  let current: number = 1;
+  let totalBatch = 1;
+  let current = 1;
   of(WEB_URL)
     .pipe(
       mergeMap((rootCat) => from(transformCategoryObj(rootCat))), // pre2012, post2012
       mergeMap(({ value, path }) => from(transformCategoryObj(value, path))), // woodwinds, brass ...
-      mergeMap(({ value, path }) => {
-        const allData = transformCategoryObj(value, path) as {
-          value: string;
-          path: string;
-        }[];
-        totalBatch = Math.ceil(allData.length / BATCH_SIZE);
-        return from(allData);
-      }), // flute, altoFlute ...
+      map(
+        ({ value, path }) =>
+          transformCategoryObj(value, path) as {
+            value: string;
+            path: string;
+          }[]
+      ), // flute, altoFlute ...
+      tap((data) => {
+        totalBatch = Math.ceil(data.length / BATCH_SIZE);
+        console.log('Total batch: ', totalBatch);
+      }),
+      mergeMap((data) => from(data)),
+      take(1),
       bufferCount(BATCH_SIZE),
-      concatMap((values) =>
-        forkJoin({
+      concatMap((values) => {
+        console.log('Processing...: ', current, '/', totalBatch);
+        return forkJoin({
           value: from(values).pipe(
             mergeMap(({ path, value }) =>
               parseUrl(value).then((categoryUrls) => ({ path, categoryUrls }))
-            ),
+            ), // each batch, scrape data
             tap(({ categoryUrls, path }) =>
               console.log('Web scraped ', {
                 ...forInRight(categoryUrls, (urls) => urls.length),
                 path,
               })
-            ),
+            ), // each url contains multiple resource urls
             map(({ categoryUrls, path }) =>
               Object.keys(categoryUrls).map((category) => ({
                 urls: categoryUrls[category],
                 path: Path.join(path, category),
               }))
-            ),
+            ), // for each resource url
             mergeMap((res) => from(res)),
             map(({ urls, path }) => urls.map((url) => ({ url, path }))),
             mergeMap((res) => from(res)),
-            tap(({ url, path }) =>
-              console.log('Downloading...', { url, path })
-            ),
             mergeMap(({ url, path }) =>
               saveToLocalStreaming(url, path).then(() => ({ url, path }))
             ),
@@ -80,15 +84,22 @@ const run = async () => {
             )
           ),
           timeout: timer(BATCH_MIN_TIME).pipe(take(1)),
-        }).pipe(tap(() => console.log('Done processing')))
-      )
+        }).pipe(
+          catchError((err) => {
+            console.warn('Error when processing: ', current, '/', totalBatch);
+            return throwError(() => err);
+          }),
+          tap(() => {
+            console.log('Done processing: ', current, '/', totalBatch);
+            current += 1;
+          })
+        );
+      })
     )
     .subscribe({
       complete: () => console.log('All done'),
       error: (err) => console.error('Error encountered', err),
     });
-  // const res = await parseUrl(WEB_URL.pre2012.woodwinds.flute);
-  // console.warn({ res });
 };
 
 run();
