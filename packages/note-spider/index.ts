@@ -15,12 +15,19 @@ import {
   tap,
   catchError,
   throwError,
+  toArray,
 } from 'rxjs';
 import { mapValues } from 'lodash';
+import fs from 'fs';
 
-const BATCH_SIZE = 1;
-const BATCH_MIN_TIME = 10_000;
+const BATCH_SIZE = 10;
+const BATCH_MIN_TIME = 3_000;
+const CONCURRNET_DOWNLOADING = 20;
 const STORAGE_PATH = Path.resolve(__dirname, 'data');
+if (fs.existsSync(STORAGE_PATH)) {
+  console.log('Removing storage directory...', STORAGE_PATH);
+  fs.rmSync(STORAGE_PATH, { recursive: true });
+}
 
 const transformCategoryObj = <K extends string, V>(
   obj: Record<K, V>,
@@ -36,6 +43,8 @@ const transformCategoryObj = <K extends string, V>(
 const run = async () => {
   let totalBatch = 1;
   let current = 1;
+  let totalUrls = 0;
+  let finishedUrls = 0;
   of(WEB_URL)
     .pipe(
       mergeMap((rootCat) => from(transformCategoryObj(rootCat))), // pre2012, post2012
@@ -47,12 +56,13 @@ const run = async () => {
             path: string;
           }[]
       ), // flute, altoFlute ...
+      toArray(),
+      map((v) => v.flat()),
       tap((data) => {
         totalBatch = Math.ceil(data.length / BATCH_SIZE);
-        console.log('Total batch: ', totalBatch);
+        console.log('Data length: ', data.length, 'Total batch: ', totalBatch);
       }),
       mergeMap((data) => from(data)),
-      take(1),
       bufferCount(BATCH_SIZE),
       concatMap((values) => {
         console.log('Processing...: ', current, '/', totalBatch);
@@ -75,26 +85,72 @@ const run = async () => {
             ), // for each resource url
             mergeMap((res) => from(res)),
             map(({ urls, path }) => urls.map((url) => ({ url, path }))),
-            mergeMap((res) => from(res)),
-            mergeMap(({ url, path }) =>
-              saveToLocalStreaming(url, path).then(() => ({ url, path }))
-            ),
-            tap(({ url, path }) =>
-              console.log('Downloading finished', { url, path })
-            )
+            toArray(),
+            map((res) => res.flat())
           ),
           timeout: timer(BATCH_MIN_TIME).pipe(take(1)),
         }).pipe(
+          map((v) => v.value),
           catchError((err) => {
             console.warn('Error when processing: ', current, '/', totalBatch);
             return throwError(() => err);
           }),
-          tap(() => {
-            console.log('Done processing: ', current, '/', totalBatch);
+          tap((v) => {
+            console.log(`Done scraping: ${v.length}`, current, '/', totalBatch);
             current += 1;
           })
         );
-      })
+      }),
+      tap(
+        (
+          data: {
+            url: string;
+            path: string;
+          }[]
+        ) => {
+          totalUrls += data.length;
+          console.log(
+            'New Urls: ',
+            data.length,
+            'Current status: ',
+            finishedUrls,
+            '/',
+            totalUrls
+          );
+        }
+      ),
+      mergeMap(
+        (
+          res: {
+            url: string;
+            path: string;
+          }[]
+        ) => from(res)
+      ),
+      mergeMap(
+        (
+          data: {
+            url: string;
+            path: string;
+          }[]
+        ) =>
+          from(data).pipe(
+            mergeMap(({ url, path }) =>
+              saveToLocalStreaming(url, path).then(() => ({ url, path }))
+            ),
+            tap(({ url, path }) => {
+              finishedUrls += 1;
+              console.log(
+                'Downloading finished',
+                { url, path },
+                finishedUrls,
+                '/',
+                totalUrls
+              );
+            })
+          ),
+        CONCURRNET_DOWNLOADING
+      )
     )
     .subscribe({
       complete: () => console.log('All done'),

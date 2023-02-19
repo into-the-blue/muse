@@ -22,6 +22,7 @@ const _getTitleAndLinks = (
         .toLowerCase()
         .trim()
         .replace(/\s/g, '_');
+      continue;
     }
     const as = child?.querySelectorAll('a');
     if (as?.length !== 1) continue;
