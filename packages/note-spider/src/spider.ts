@@ -21,6 +21,7 @@ const _getTitleAndLinks = (
       currentKey = strongText.textContent
         .toLowerCase()
         .trim()
+        .replace(':', '')
         .replace(/\s/g, '_');
       continue;
     }

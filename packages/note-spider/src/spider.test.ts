@@ -24,6 +24,11 @@ describe('Scraping pre2012 website', () => {
     expect(Object.keys(res).length).toBe(1);
     expect(res['default'].length).toBe(261);
   });
+  test('Scrape pre2012 consectutive headers', async () => {
+    const url = WEB_URL.pre2012.percussion.cymbals;
+    const res = await parseUrl(url);
+    expect(Object.keys(res)).toHaveLength(10);
+  });
 });
 
 describe('Scraping post2012 website', () => {
@@ -45,5 +50,11 @@ describe('Scraping post2012 website', () => {
     const url = WEB_URL.post2012.percussion.handPercussion;
     const res = await parseUrl(url);
     expect(Object.keys(res)).toHaveLength(7);
+  });
+
+  test('Scrape post2012 consectutive headers', async () => {
+    const url = WEB_URL.post2012.percussion.cymbals;
+    const res = await parseUrl(url);
+    expect(Object.keys(res)).toHaveLength(10);
   });
 });
