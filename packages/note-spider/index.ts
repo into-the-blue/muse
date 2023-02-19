@@ -45,6 +45,7 @@ const run = async () => {
   let current = 1;
   let totalUrls = 0;
   let finishedUrls = 0;
+  const allFileUrls: { url: string; path: string }[] = [];
   of(WEB_URL)
     .pipe(
       mergeMap((rootCat) => from(transformCategoryObj(rootCat))), // pre2012, post2012
@@ -108,6 +109,7 @@ const run = async () => {
             path: string;
           }[]
         ) => {
+          allFileUrls.push(...data);
           totalUrls += data.length;
           console.log(
             'New Urls: ',
@@ -128,16 +130,10 @@ const run = async () => {
         ) => from(res)
       ),
       mergeMap(
-        (
-          data: {
-            url: string;
-            path: string;
-          }[]
-        ) =>
-          from(data).pipe(
-            mergeMap(({ url, path }) =>
-              saveToLocalStreaming(url, path).then(() => ({ url, path }))
-            ),
+        ({ url, path }: { url: string; path: string }) =>
+          from(
+            saveToLocalStreaming(url, path).then(() => ({ url, path }))
+          ).pipe(
             tap(({ url, path }) => {
               finishedUrls += 1;
               console.log(
@@ -153,7 +149,13 @@ const run = async () => {
       )
     )
     .subscribe({
-      complete: () => console.log('All done'),
+      complete: () => {
+        fs.writeFileSync(
+          Path.join(STORAGE_PATH, 'urlsAndPath.json'),
+          JSON.stringify(allFileUrls)
+        );
+        console.log('All done');
+      },
       error: (err) => console.error('Error encountered', err),
     });
 };
