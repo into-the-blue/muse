@@ -54,7 +54,8 @@
     "ts-node": "10.9.1"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "apps/*"
   ],
   "dependencies": {
     "react": "18.2.0",

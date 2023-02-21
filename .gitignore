@@ -110,4 +110,4 @@ yarn-error.log
 /coverage
 
 
-packages/muse-mobile-e2e/artifacts
+apps/muse-mobile-e2e/artifacts
