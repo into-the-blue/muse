@@ -127,7 +127,7 @@ importers:
       react-native-config: 1.5.0
       react-native-svg: 13.8.0_yqouayos4dnow7nnkhah4yzuzq
 
-  apps/note-spider:
+  packages/note-spider:
     specifiers:
       '@types/jest': ^29.4.0
       '@types/jsdom': ^20.0.1
