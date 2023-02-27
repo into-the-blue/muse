@@ -20,5 +20,15 @@
         "{workspaceRoot}/.eslintignore"
       ]
     }
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "babel": true
+      },
+      "library": {
+        "unitTestRunner": "jest"
+      }
+    }
   }
 }
