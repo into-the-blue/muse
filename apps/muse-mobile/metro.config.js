@@ -1,6 +1,7 @@
 const { withNxMetro } = require('@nrwl/react-native');
 const { getDefaultConfig } = require('metro-config');
 const exclusionList = require('metro-config/src/defaults/exclusionList');
+const MetroSymlinksResolver = require('@rnx-kit/metro-resolver-symlinks');
 
 module.exports = (async () => {
   const {
@@ -18,6 +19,7 @@ module.exports = (async () => {
         babelTransformerPath: require.resolve('react-native-svg-transformer'),
       },
       resolver: {
+        resolveRequest: MetroSymlinksResolver(), // https://microsoft.github.io/rnx-kit/docs/tools/metro-resolver-symlinks
         assetExts: assetExts.filter((ext) => ext !== 'svg'),
         sourceExts: [...sourceExts, 'svg'],
         blockList: exclusionList([/^(?!.*node_modules).*\/dist\/.*/]),
