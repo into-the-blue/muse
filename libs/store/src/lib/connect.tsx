@@ -48,8 +48,8 @@ function connectStores<
         ...compProps,
       } as P;
       useEffect(() => {
-        compProps.controller?.componentDidMount();
-        return () => compProps.controller?.componentWillUnmount();
+        compProps.controller?.componentDidMount?.();
+        return () => compProps.controller?.componentWillUnmount?.();
       }, []);
       return <CompObserver {..._props} />;
     }

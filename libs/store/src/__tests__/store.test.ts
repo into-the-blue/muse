@@ -1,69 +1,11 @@
 import 'reflect-metadata';
 import {
-  Injectable,
   resolve,
   Instantiable,
   container,
   unionResolve,
 } from '../lib/store';
-import { makeObservable, observable, action } from 'mobx';
-
-@Injectable({ singleton: true })
-class Store1 {
-  constructor() {
-    makeObservable(this, {
-      count: observable,
-      increase: action,
-    });
-  }
-  count = 0;
-  increase = () => {
-    this.count += 1;
-  };
-}
-
-@Injectable()
-class Store2 {
-  constructor() {
-    makeObservable(this, {
-      count2: observable,
-      increase2: action,
-    });
-  }
-  count2 = 0;
-
-  increase2 = () => {
-    this.count2 += 2;
-  };
-}
-
-@Injectable()
-class Service1 {
-  store1: Store1;
-  constructor(store1: Store1) {
-    this.store1 = store1;
-  }
-
-  invoke = () => {
-    this.store1.increase();
-    console.log('[Service1]', this.store1.count);
-  };
-  get getCount() {
-    return this.store1.count;
-  }
-}
-
-@Injectable()
-class Service2 {
-  constructor(private store2: Store2) {}
-  invoke = () => {
-    this.store2.increase2();
-    console.log('[Service2]', this.store2.count2);
-  };
-  get getCount() {
-    return this.store2.count2;
-  }
-}
+import { Service1, Service2, Store2 } from './util';
 
 test('Resolve should work', () => {
   const instance = resolve(Service1);
