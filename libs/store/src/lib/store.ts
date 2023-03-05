@@ -1,5 +1,5 @@
 import { Container, injectable } from 'inversify';
-// import 'reflect-metadata';
+import 'reflect-metadata';
 import { ClassLike } from '@muse/types';
 
 const CLASS_SYMBOL = Symbol('classSymbol');
@@ -25,11 +25,9 @@ export const Injectable = (
       : target;
     if (typeof name !== 'undefined' && USE_SYMBOL_AS_IDENTIFIER) {
       classIdentifier = Symbol(name);
-      Reflect.defineProperty(target, CLASS_SYMBOL, classIdentifier);
-      //   Reflect.defineProperty(CLASS_SYMBOL, classIdentifier, target);
+      Reflect.defineMetadata(CLASS_SYMBOL, classIdentifier, target);
     }
-    Reflect.defineProperty(target, SINGLETON_SYMBOL, !!singleton);
-    // Reflect.defineMetadata(SINGLETON_SYMBOL, !!singleton, target);
+    Reflect.defineMetadata(SINGLETON_SYMBOL, !!singleton, target);
     const bind = container.bind<typeof target>(classIdentifier).to(target);
     if (singleton) bind.inSingletonScope();
 
@@ -39,8 +37,7 @@ export const Injectable = (
 
 const getClassSymbol = (target: ClassLike<any>) => {
   if (!USE_SYMBOL_AS_IDENTIFIER) return target;
-  const storedSymbol = Reflect.get(target, CLASS_SYMBOL);
-  //   const storedSymbol = Reflect.getMetadata(CLASS_SYMBOL, target);
+  const storedSymbol = Reflect.getMetadata(CLASS_SYMBOL, target);
   return storedSymbol ?? Symbol.for(target.name);
 };
 
@@ -64,14 +61,12 @@ export const resolve = <T>(
 ): T => {
   if (!isClass(target)) throw new Error('Invalid target, expect Class');
   const identifier = getClassSymbol(target); // identifier of class
-  const paramTypes = Reflect.get(target, 'design:paramtypes');
-  //   const paramTypes = Reflect.getMetadata('design:paramtypes', target);
+    const paramTypes = Reflect.getMetadata('design:paramtypes', target);
   if (!paramTypes?.length) {
     // no parameters, create an instance
     const isBound = container.isBound(identifier);
     if (isBound) {
-      const isSingleton = Reflect.get(target, SINGLETON_SYMBOL);
-      //   const isSingleton = Reflect.getMetadata(SINGLETON_SYMBOL, target);
+        const isSingleton = Reflect.getMetadata(SINGLETON_SYMBOL, target);
       const instance = container.get(identifier) as T;
       // if target is a singleton or no shared container exists, return instance
       if (isSingleton || !sharedContaienr) return instance;

@@ -3,14 +3,7 @@ import { unionResolve } from './store';
 import { ClassLike } from '@muse/types';
 import { observer } from 'mobx-react-lite';
 import React, { useEffect } from 'react';
-
-const zip = (arr1: unknown[], arr2: unknown[]): [unknown, unknown][] => {
-  const res: [unknown, unknown][] = [];
-  arr1.forEach((item, idx) => {
-    res.push([item, arr2[idx]]);
-  });
-  return res;
-};
+import { zip } from 'lodash';
 
 type Enhancer<IncluedProps> = <
   P extends IncluedProps & JSX.IntrinsicAttributes
