@@ -40,6 +40,8 @@ importers:
       metro-babel-register: 0.74.1
       metro-config: 0.74.1
       metro-resolver: 0.74.1
+      mobx: ^6.8.0
+      mobx-react-lite: ^3.4.1
       nx: 15.7.2
       prettier: ^2.6.2
       react: 18.2.0
@@ -51,6 +53,8 @@ importers:
       ts-node: 10.9.1
       tslib: ^2.3.0
     dependencies:
+      mobx: 6.8.0
+      mobx-react-lite: 3.4.1_5ogklfr4l2q24gitweyscfl3du
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-native: 0.71.2_react@18.2.0
@@ -131,6 +135,25 @@ importers:
     devDependencies:
       metro-react-native-babel-preset: 0.74.1
       metro-react-native-babel-transformer: 0.74.1
+
+  libs/store:
+    specifiers:
+      inversify: ^6.0.1
+      mobx: '*'
+      mobx-react-lite: '*'
+      reflect-metadata: ^0.1.13
+    dependencies:
+      mobx: 6.8.0
+      mobx-react-lite: 3.4.1_mobx@6.8.0
+    devDependencies:
+      inversify: 6.0.1
+      reflect-metadata: 0.1.13
+
+  libs/xeno:
+    specifiers:
+      rxjs: '*'
+    dependencies:
+      rxjs: 7.8.0
 
   packages/note-spider:
     specifiers:
@@ -6735,6 +6758,10 @@ packages:
     dependencies:
       loose-envify: 1.4.0
 
+  /inversify/6.0.1:
+    resolution: {integrity: sha512-B3ex30927698TJENHR++8FfEaJGqoWOgI6ZY5Ht/nLUsFCwHn6akbwtnUAPCgUepAnTpe2qHxhDNjoKLyz6rgQ==}
+    dev: true
+
   /ip/1.1.8:
     resolution: {integrity: sha512-PuExPYUiu6qMBQb4l06ecm6T6ujzhmh+MeJcW9wa89PoAz5pvd4zPgN5WJV104mb6S2T1AwNIAaB70JNrLQWhg==}
 
@@ -9349,6 +9376,45 @@ packages:
     dependencies:
       minimist: 1.2.8
 
+  /mobx-react-lite/3.4.1_5ogklfr4l2q24gitweyscfl3du:
+    resolution: {integrity: sha512-K3eypcF+Lngv7nPqCz5IZb+6DQ4EiFBbE3fisgUSekRtiYmyNBa0E9P1dfnXDXqVC5Td7BUc/eq8R2Z1JEiJVQ==}
+    peerDependencies:
+      mobx: ^6.1.0
+      react: ^16.8.0 || ^17 || ^18
+      react-dom: '*'
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      mobx: 6.8.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-native: 0.71.2_react@18.2.0
+    dev: false
+
+  /mobx-react-lite/3.4.1_mobx@6.8.0:
+    resolution: {integrity: sha512-K3eypcF+Lngv7nPqCz5IZb+6DQ4EiFBbE3fisgUSekRtiYmyNBa0E9P1dfnXDXqVC5Td7BUc/eq8R2Z1JEiJVQ==}
+    peerDependencies:
+      mobx: ^6.1.0
+      react: ^16.8.0 || ^17 || ^18
+      react-dom: '*'
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      mobx: 6.8.0
+    dev: false
+
+  /mobx/6.8.0:
+    resolution: {integrity: sha512-+o/DrHa4zykFMSKfS8Z+CPSEg5LW9tSNGTuN8o6MF1GKxlfkSHSeJn5UtgxvPkGgaouplnrLXCF+duAsmm6FHQ==}
+    dev: false
+
   /moment/2.29.4:
     resolution: {integrity: sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==}
     requiresBuild: true
@@ -10296,6 +10362,10 @@ packages:
     dependencies:
       indent-string: 4.0.0
       strip-indent: 3.0.0
+
+  /reflect-metadata/0.1.13:
+    resolution: {integrity: sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg==}
+    dev: true
 
   /regenerate-unicode-properties/10.1.0:
     resolution: {integrity: sha512-d1VudCLoIGitcU/hEg2QqvyGZQmdC0Lf8BqdOMXGFSvJP4bNV1+XqbPQeHHLD51Jh4QJJ225dlIFvY4Ly6MXmQ==}
