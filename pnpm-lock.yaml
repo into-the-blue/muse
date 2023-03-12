@@ -116,8 +116,8 @@ importers:
       '@sentry/react-native': ^5.1.0
       '@testing-library/jest-native': '*'
       '@testing-library/react-native': '*'
-      metro-react-native-babel-preset: '*'
-      metro-react-native-babel-transformer: '*'
+      metro-react-native-babel-preset: 0.74.1
+      metro-react-native-babel-transformer: 0.74.1
       react: '*'
       react-native: '*'
       react-native-config: 1.5.0
