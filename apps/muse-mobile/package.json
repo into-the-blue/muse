@@ -4,19 +4,14 @@
   "private": true,
   "dependencies": {
     "@react-native-async-storage/async-storage": "1.17.11",
-    "@react-native-community/cli": "10.1.3",
-    "@react-native-community/cli-platform-android": "*",
-    "@react-native-community/cli-platform-ios": "*",
     "@rnx-kit/metro-resolver-symlinks": "^0.1.26",
     "@testing-library/jest-native": "*",
     "@testing-library/react-native": "*",
-    "metro-react-native-babel-preset": "*",
-    "metro-react-native-babel-transformer": "*",
     "react": "*",
     "react-native": "*",
     "react-native-config": "1.5.0",
-    "react-native-gradle-plugin": "*",
     "react-native-svg": "13.8.0",
-    "react-native-svg-transformer": "1.0.0"
+    "react-native-svg-transformer": "1.0.0",
+    "metro-react-native-babel-preset": "0.74.1"
   }
 }

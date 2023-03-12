@@ -37,10 +37,6 @@ importers:
       jest-environment-jsdom: 28.1.1
       jest-react-native: 18.0.0
       lodash: ^4.17.21
-      metro: 0.74.1
-      metro-babel-register: 0.74.1
-      metro-config: 0.74.1
-      metro-resolver: 0.74.1
       mobx: ^6.8.0
       mobx-react-lite: ^3.4.1
       nx: 15.7.2
@@ -94,10 +90,6 @@ importers:
       jest-circus: 28.1.1
       jest-environment-jsdom: 28.1.1
       jest-react-native: 18.0.0_react-native@0.71.2
-      metro: 0.74.1
-      metro-babel-register: 0.74.1
-      metro-config: 0.74.1
-      metro-resolver: 0.74.1
       nx: 15.7.2
       prettier: 2.8.4
       react-test-renderer: 18.2.0_react@18.2.0
@@ -108,34 +100,24 @@ importers:
   apps/muse-mobile:
     specifiers:
       '@react-native-async-storage/async-storage': 1.17.11
-      '@react-native-community/cli': 10.1.3
-      '@react-native-community/cli-platform-android': '*'
-      '@react-native-community/cli-platform-ios': '*'
       '@rnx-kit/metro-resolver-symlinks': ^0.1.26
       '@testing-library/jest-native': '*'
       '@testing-library/react-native': '*'
-      metro-react-native-babel-preset: '*'
-      metro-react-native-babel-transformer: '*'
+      metro-react-native-babel-preset: 0.74.1
       react: '*'
       react-native: '*'
       react-native-config: 1.5.0
-      react-native-gradle-plugin: '*'
       react-native-svg: 13.8.0
       react-native-svg-transformer: 1.0.0
     dependencies:
       '@react-native-async-storage/async-storage': 1.17.11_react-native@0.71.2
-      '@react-native-community/cli': 10.1.3
-      '@react-native-community/cli-platform-android': 10.2.0
-      '@react-native-community/cli-platform-ios': 10.2.0
       '@rnx-kit/metro-resolver-symlinks': 0.1.26
       '@testing-library/jest-native': 5.4.1_4abxuapkhmo52mhwaeeet7psu4
       '@testing-library/react-native': 11.5.2_4abxuapkhmo52mhwaeeet7psu4
       metro-react-native-babel-preset: 0.74.1
-      metro-react-native-babel-transformer: 0.74.1
       react: 18.2.0
       react-native: 0.71.2_react@18.2.0
       react-native-config: 1.5.0
-      react-native-gradle-plugin: 0.71.15
       react-native-svg: 13.8.0_4abxuapkhmo52mhwaeeet7psu4
       react-native-svg-transformer: 1.0.0_rhzfke3hv63ki4fp6bjrdgp4ny
 
@@ -4483,10 +4465,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /babel-plugin-replace-ts-export-assignment/0.0.2:
-    resolution: {integrity: sha512-BiTEG2Ro+O1spuheL5nB289y37FFmz0ISE6GjpNCG2JuA/WNcuEHSYw01+vN8quGf208sID3FnZFDwVyqX18YQ==}
-    dev: true
-
   /babel-plugin-syntax-trailing-function-commas/7.0.0-beta.0:
     resolution: {integrity: sha512-Xj9XuRuz3nTSbaTXWv3itLOcxyF4oPD8douBBmj7U9BBC6nEBYfyOJYQMf/8PJAFotC62UY5dFfIGEPr7WswzQ==}
 
@@ -8602,23 +8580,6 @@ packages:
     engines: {node: '>= 8'}
     dev: true
 
-  /metro-babel-register/0.74.1:
-    resolution: {integrity: sha512-e/BgnWMVDh5wt2xGn/E+VATF55UHXz6gceMs4t/uCtdk/qD/Khz3auYvWBpv8k27xGqqTLu7FYUi0/MAtukhrQ==}
-    dependencies:
-      '@babel/core': 7.21.0
-      '@babel/plugin-proposal-nullish-coalescing-operator': 7.18.6_@babel+core@7.21.0
-      '@babel/plugin-proposal-optional-chaining': 7.21.0_@babel+core@7.21.0
-      '@babel/plugin-syntax-class-properties': 7.12.13_@babel+core@7.21.0
-      '@babel/plugin-transform-flow-strip-types': 7.21.0_@babel+core@7.21.0
-      '@babel/plugin-transform-modules-commonjs': 7.21.2_@babel+core@7.21.0
-      '@babel/preset-typescript': 7.21.0_@babel+core@7.21.0
-      '@babel/register': 7.21.0_@babel+core@7.21.0
-      babel-plugin-replace-ts-export-assignment: 0.0.2
-      escape-string-regexp: 1.0.5
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
   /metro-babel-transformer/0.73.7:
     resolution: {integrity: sha512-s7UVkwovGTEXYEQrv5hcmSBbFJ9s9lhCRNMScn4Itgj3UMdqRr9lU8DXKEFlJ7osgRxN6n5+eXqcvhE4B1H1VQ==}
     dependencies:
@@ -8639,35 +8600,14 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /metro-babel-transformer/0.74.1:
-    resolution: {integrity: sha512-uARzCffw7g7tobAlYqFP4DRf/N4pXf50/8ZbuKj/M4FbhwDGgKk2oqEVtkslXPayRd5pKBj8yzzlnYKUYpdhQA==}
-    dependencies:
-      '@babel/core': 7.21.0
-      hermes-parser: 0.8.0
-      metro-source-map: 0.74.1
-      nullthrows: 1.1.1
-    transitivePeerDependencies:
-      - supports-color
-
   /metro-cache-key/0.73.8:
     resolution: {integrity: sha512-VzFGu4kJGIkLjyDgVoM2ZxIHlMdCZWMqVIux9N+EeyMVMvGXTiXW8eGROgxzDhVjyR58IjfMsYpRCKz5dR+2ew==}
-
-  /metro-cache-key/0.74.1:
-    resolution: {integrity: sha512-+Q98e7du4+UtnqKe3b2Yr7ag2R0j9rsw9QdHbbpewsLTLy/VrEQ3ggRbqtBD8jAo4+qDBjmeLSqjQHcN99VJJw==}
-    dev: true
 
   /metro-cache/0.73.8:
     resolution: {integrity: sha512-/uFbTIw813Rvb8kSAIHvax9gWl41dtgjY2SpJLNIBLdQ6oFZ3CVo3ahZIiEZOrCeHl9xfGn5tmvNb8CEFa/Q5w==}
     dependencies:
       metro-core: 0.73.8
       rimraf: 3.0.2
-
-  /metro-cache/0.74.1:
-    resolution: {integrity: sha512-H9HsFs69/Dt4efYPFjYB42/bDQdNZTd4HbA3x9Pdyg7eByHm3VSOT68C/VBHWIb6olRqg4IX/QCpS7i7xR8Yng==}
-    dependencies:
-      metro-core: 0.74.1
-      rimraf: 3.0.2
-    dev: true
 
   /metro-config/0.73.8:
     resolution: {integrity: sha512-sAYq+llL6ZAfro64U99ske8HcKKswxX4wIZbll9niBKG7TkWm7tfMY1jO687XEmE4683rHncZeBRav9pLngIzg==}
@@ -8684,34 +8624,11 @@ packages:
       - supports-color
       - utf-8-validate
 
-  /metro-config/0.74.1:
-    resolution: {integrity: sha512-UXVBM0rDSeyDJBKM2wblcYS+bPTx6bcRsFXcdWnHm2DBPlfnqx+qqOyFOw7O/R9FDFqN204i23GMkR7vCpQgiw==}
-    dependencies:
-      cosmiconfig: 5.2.1
-      jest-validate: 26.6.2
-      metro: 0.74.1
-      metro-cache: 0.74.1
-      metro-core: 0.74.1
-      metro-runtime: 0.74.1
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - supports-color
-      - utf-8-validate
-    dev: true
-
   /metro-core/0.73.8:
     resolution: {integrity: sha512-Aew4dthbZf8bRRjlYGL3cnai3+LKYTf6mc7YS2xLQRWtgGZ1b/H8nQtBvXZpfRYFcS84UeEQ10vwIf5eR3qPdQ==}
     dependencies:
       lodash.throttle: 4.1.1
       metro-resolver: 0.73.8
-
-  /metro-core/0.74.1:
-    resolution: {integrity: sha512-YTLXjYnUJ50idsZoK25L2JuMW84ohpgQWKSmX77A0vkFLFjpFDKsPxeC9uHaV+bTwcC0/rjpkRellJ/zsES1Bg==}
-    dependencies:
-      lodash.throttle: 4.1.1
-      metro-resolver: 0.74.1
-    dev: true
 
   /metro-file-map/0.73.8:
     resolution: {integrity: sha512-CM552hUO9om02jJdLszOCIDADKNaaeVz8CjYXItndvgr5jmFlQYAR+UMvaDzeT8oYdAV1DXAljma2CS2UBymPg==}
@@ -8734,34 +8651,8 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /metro-file-map/0.74.1:
-    resolution: {integrity: sha512-cYJDs6c9O8housctRsK5sTwqchmR8HMfpbCbBZhvcbcvF5vZturNHwiGxwAAoR/N9tTdJmZ1EQstvewTzChUJg==}
-    dependencies:
-      abort-controller: 3.0.0
-      anymatch: 3.1.3
-      debug: 2.6.9
-      fb-watchman: 2.0.2
-      graceful-fs: 4.2.10
-      invariant: 2.2.4
-      jest-regex-util: 27.5.1
-      jest-serializer: 27.5.1
-      jest-util: 27.5.1
-      jest-worker: 27.5.1
-      micromatch: 4.0.5
-      nullthrows: 1.1.1
-      walker: 1.0.8
-    optionalDependencies:
-      fsevents: 2.3.2
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
   /metro-hermes-compiler/0.73.8:
     resolution: {integrity: sha512-2d7t+TEoQLk+jyXgBykmAtPPJK2B46DB3qUYIMKDFDDaKzCljrojyVuGgQq6SM1f95fe6HDAQ3K9ihTjeB90yw==}
-
-  /metro-hermes-compiler/0.74.1:
-    resolution: {integrity: sha512-ky44JsFvKYOwop/TvhzAZV+pYH7J7t8njbmUVbPQWi15CwsTRsr5/0jC26yyYqriOjAoivLc5R140SwyguDEfg==}
-    dev: true
 
   /metro-inspector-proxy/0.73.8:
     resolution: {integrity: sha512-F0QxwDTox0TDeXVRN7ZmI7BknBjPDVKQ1ZeKznFBiMa0SXiD1kzoksfpDbZ6hTEKrhVM9Ep0YQmC7avwZouOnA==}
@@ -8776,41 +8667,15 @@ packages:
       - supports-color
       - utf-8-validate
 
-  /metro-inspector-proxy/0.74.1:
-    resolution: {integrity: sha512-+QcFpr6SBvlbcviT9nCZ1KtGuviRKUa5EfrNE0LhpnQX/i0MIA+9F2dwK9zO0KTXqkfWkNzvRGrVt3YGfjyYpA==}
-    hasBin: true
-    dependencies:
-      connect: 3.7.0
-      debug: 2.6.9
-      ws: 7.5.9
-      yargs: 17.7.1
-    transitivePeerDependencies:
-      - bufferutil
-      - supports-color
-      - utf-8-validate
-    dev: true
-
   /metro-minify-terser/0.73.8:
     resolution: {integrity: sha512-pnagyXAoMPhihWrHRIWqCxrP6EJ8Hfugv5RXBb6HbOANmwajn2uQuzeu18+dXaN1yPoDCMCgpg/UA4ibFN5jtQ==}
     dependencies:
       terser: 5.16.5
 
-  /metro-minify-terser/0.74.1:
-    resolution: {integrity: sha512-R8l2KbYm1ct9benFSXBjeBDJ48BIyyQo3ECG0TSDX5efLSAS9z0scOCTUC9mcAJ9CO1tjc9ZrjHMNWAOoHO6XA==}
-    dependencies:
-      terser: 5.16.5
-    dev: true
-
   /metro-minify-uglify/0.73.8:
     resolution: {integrity: sha512-9wZqKfraVfmtMXdOzRyan+6r1woQXqqa4KeXfVh7+Mxl+5+J0Lmw6EvTrWawsaOEpvpn32q9MfoHC1d8plDJwA==}
     dependencies:
       uglify-es: 3.3.9
-
-  /metro-minify-uglify/0.74.1:
-    resolution: {integrity: sha512-C70Z4ur+YZAHprEQDZsi29noGzYrFoiDu4dOJqdk+NQlhiwmimzL5HRpcTsDcNo7tNsqGQoqMX1cGW3TiOSbgQ==}
-    dependencies:
-      uglify-es: 3.3.9
-    dev: true
 
   /metro-react-native-babel-preset/0.73.7:
     resolution: {integrity: sha512-RKcmRZREjJCzHKP+JhC9QTCohkeb3xa/DtqHU14U5KWzJHdC0mMrkTZYNXhV0cryxsaVKVEw5873KhbZyZHMVw==}
@@ -8943,6 +8808,7 @@ packages:
       react-refresh: 0.4.3
     transitivePeerDependencies:
       - supports-color
+    dev: false
 
   /metro-react-native-babel-transformer/0.73.7:
     resolution: {integrity: sha512-73HW8betjX+VPm3iqsMBe8F/F2Tt+hONO6YJwcF7FonTqQYW1oTz0dOp0dClZGfHUXxpJBz6Vuo7J6TpdzDD+w==}
@@ -8970,20 +8836,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /metro-react-native-babel-transformer/0.74.1:
-    resolution: {integrity: sha512-pTgB/jeJqkX1EGSH2t/Ztcf8OfhI1eXPUfMpzdPOWr6XimIszU3EPGf18JqOJBudPQW0b6WYFs6AJeJgOZe+Vw==}
-    dependencies:
-      '@babel/core': 7.21.0
-      babel-preset-fbjs: 3.4.0_@babel+core@7.21.0
-      hermes-parser: 0.8.0
-      metro-babel-transformer: 0.74.1
-      metro-react-native-babel-preset: 0.74.1
-      metro-source-map: 0.74.1
-      nullthrows: 1.1.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
   /metro-resolver/0.73.8:
     resolution: {integrity: sha512-GiBWont7/OgAftkkj2TiEp+Gf1PYZUk8xV4MbtnQjIKyy3MlGY3GbpMQ1BHih9GUQqlF0n9jsUlC2K5P0almXQ==}
     dependencies:
@@ -9006,13 +8858,6 @@ packages:
     dependencies:
       '@babel/runtime': 7.20.13
       react-refresh: 0.4.3
-
-  /metro-runtime/0.74.1:
-    resolution: {integrity: sha512-6nUj5gcsT/xmL1rbYt6IbXEJycf/jcMC397MAanLqhVP4q35ZQ0OQhB9hKwulwuoNQr0hmo001znGaalnimgWQ==}
-    dependencies:
-      '@babel/runtime': 7.20.13
-      react-refresh: 0.4.3
-    dev: true
 
   /metro-source-map/0.73.7:
     resolution: {integrity: sha512-gbC/lfUN52TtQhEsTTA+987MaFUpQlufuCI05blLGLosDcFCsARikHsxa65Gtslm/rG2MqvFLiPA5hviONNv9g==}
@@ -9037,20 +8882,6 @@ packages:
       metro-symbolicate: 0.73.8
       nullthrows: 1.1.1
       ob1: 0.73.8
-      source-map: 0.5.7
-      vlq: 1.0.1
-    transitivePeerDependencies:
-      - supports-color
-
-  /metro-source-map/0.74.1:
-    resolution: {integrity: sha512-mvC3Em5Fxj3Vggw/MSwzVtwHApClq1f2dqyC9D4G+yhbM1WrG02C31KGDCUupFGAUTRiXswy27XfTSBlNGcPCw==}
-    dependencies:
-      '@babel/traverse': 7.21.2
-      '@babel/types': 7.21.2
-      invariant: 2.2.4
-      metro-symbolicate: 0.74.1
-      nullthrows: 1.1.1
-      ob1: 0.74.1
       source-map: 0.5.7
       vlq: 1.0.1
     transitivePeerDependencies:
@@ -9084,20 +8915,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /metro-symbolicate/0.74.1:
-    resolution: {integrity: sha512-9Xtqx+Qi8xOVb5o1+Cjx237MUIk/EPL9J759ESdsI0YrhQe8GJaFKO9EwiyWjLSSdk9Tz89L1NV2ykDt7CSuVQ==}
-    engines: {node: '>=8.3'}
-    hasBin: true
-    dependencies:
-      invariant: 2.2.4
-      metro-source-map: 0.74.1
-      nullthrows: 1.1.1
-      source-map: 0.5.7
-      through2: 2.0.5
-      vlq: 1.0.1
-    transitivePeerDependencies:
-      - supports-color
-
   /metro-transform-plugins/0.73.8:
     resolution: {integrity: sha512-IxjlnB5eA49M0WfvPEzvRikK3Rr6bECUUfcZt/rWpSphq/mttgyLYcHQ+VTZZl0zHolC3cTLwgoDod4IIJBn1A==}
     dependencies:
@@ -9108,18 +8925,6 @@ packages:
       nullthrows: 1.1.1
     transitivePeerDependencies:
       - supports-color
-
-  /metro-transform-plugins/0.74.1:
-    resolution: {integrity: sha512-eBBQDd0fyI6g/tReJ3PPd4JxUQugMs2MkjypZrCAq8qqhKEtcAEczb/GzZbVL/GMeXBSDj6cObxwaXiFeRyMKg==}
-    dependencies:
-      '@babel/core': 7.21.0
-      '@babel/generator': 7.21.1
-      '@babel/template': 7.20.7
-      '@babel/traverse': 7.21.2
-      nullthrows: 1.1.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
 
   /metro-transform-worker/0.73.8:
     resolution: {integrity: sha512-B8kR6lmcvyG4UFSF2QDfr/eEnWJvg0ZadooF8Dg6m/3JSm9OAqfSoC0YrWqAuvtWImNDnbeKWN7/+ns44Hv6tg==}
@@ -9142,29 +8947,6 @@ packages:
       - encoding
       - supports-color
       - utf-8-validate
-
-  /metro-transform-worker/0.74.1:
-    resolution: {integrity: sha512-ZTZM/nilKtiHW2cH73VCOe1oNZPWcJfGxIGZ4KV6QMDEPMUfDApvklW9we58r2ES2pZLID08BCekFHCTt8SBPA==}
-    dependencies:
-      '@babel/core': 7.21.0
-      '@babel/generator': 7.21.1
-      '@babel/parser': 7.21.2
-      '@babel/types': 7.21.2
-      babel-preset-fbjs: 3.4.0_@babel+core@7.21.0
-      metro: 0.74.1
-      metro-babel-transformer: 0.74.1
-      metro-cache: 0.74.1
-      metro-cache-key: 0.74.1
-      metro-hermes-compiler: 0.74.1
-      metro-source-map: 0.74.1
-      metro-transform-plugins: 0.74.1
-      nullthrows: 1.1.1
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - supports-color
-      - utf-8-validate
-    dev: true
 
   /metro/0.73.8:
     resolution: {integrity: sha512-2EMJME9w5x7Uzn+DnQ4hzWr33u/aASaOBGdpf4lxbrlk6/vl4UBfX1sru6KU535qc/0Z1BMt4Vq9qsP3ZGFmWg==}
@@ -9225,67 +9007,6 @@ packages:
       - encoding
       - supports-color
       - utf-8-validate
-
-  /metro/0.74.1:
-    resolution: {integrity: sha512-uzJ2Kci3tVvDJ7P+kR+RA0RKAGHE6FKI2XD/FuRaN1rRqWbhA+tn659umhCw50cHkhZPURQw6b3VgaUust7p+g==}
-    hasBin: true
-    dependencies:
-      '@babel/code-frame': 7.18.6
-      '@babel/core': 7.21.0
-      '@babel/generator': 7.21.1
-      '@babel/parser': 7.21.2
-      '@babel/template': 7.20.7
-      '@babel/traverse': 7.21.2
-      '@babel/types': 7.21.2
-      absolute-path: 0.0.0
-      accepts: 1.3.8
-      async: 3.2.4
-      chalk: 4.1.2
-      ci-info: 2.0.0
-      connect: 3.7.0
-      debug: 2.6.9
-      denodeify: 1.2.1
-      error-stack-parser: 2.1.4
-      graceful-fs: 4.2.10
-      hermes-parser: 0.8.0
-      image-size: 0.6.3
-      invariant: 2.2.4
-      jest-worker: 27.5.1
-      lodash.throttle: 4.1.1
-      metro-babel-transformer: 0.74.1
-      metro-cache: 0.74.1
-      metro-cache-key: 0.74.1
-      metro-config: 0.74.1
-      metro-core: 0.74.1
-      metro-file-map: 0.74.1
-      metro-hermes-compiler: 0.74.1
-      metro-inspector-proxy: 0.74.1
-      metro-minify-terser: 0.74.1
-      metro-minify-uglify: 0.74.1
-      metro-react-native-babel-preset: 0.74.1
-      metro-resolver: 0.74.1
-      metro-runtime: 0.74.1
-      metro-source-map: 0.74.1
-      metro-symbolicate: 0.74.1
-      metro-transform-plugins: 0.74.1
-      metro-transform-worker: 0.74.1
-      mime-types: 2.1.35
-      node-fetch: 2.6.9
-      nullthrows: 1.1.1
-      rimraf: 3.0.2
-      serialize-error: 2.1.0
-      source-map: 0.5.7
-      strip-ansi: 6.0.1
-      temp: 0.8.3
-      throat: 5.0.0
-      ws: 7.5.9
-      yargs: 17.7.1
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - supports-color
-      - utf-8-validate
-    dev: true
 
   /micromatch/3.1.10:
     resolution: {integrity: sha512-MWikgl9n9M3w+bpsY3He8L+w9eF9338xRl8IAO5viDizwSzziFEyUzo2xrrloB64ADbTf8uA8vRqqttDTOmccg==}
@@ -9711,9 +9432,6 @@ packages:
 
   /ob1/0.73.8:
     resolution: {integrity: sha512-1F7j+jzD+edS6ohQP7Vg5f3yiIk5i3x1uLrNIHOmLHWzWK1t3zrDpjnoXghccdVlsU+UjbyURnDynm4p0GgXeA==}
-
-  /ob1/0.74.1:
-    resolution: {integrity: sha512-7dJm08EG0bgcIOTqg2AxvmbgwGLeydnIpyFhAgIl2UTRR2sDTZQ0lj9zpvLKeh2CNM25l3rb+LQkmSLj1U/j/Q==}
 
   /object-assign/4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
