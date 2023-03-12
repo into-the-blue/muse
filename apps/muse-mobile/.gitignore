@@ -66,3 +66,5 @@ yarn-error.log
 
 # testing
 /coverage
+.env
+sentry.properties
