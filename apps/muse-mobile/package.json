@@ -3,15 +3,14 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@react-native-async-storage/async-storage": "1.17.11",
+    "@react-native-async-storage/async-storage": "*",
     "@rnx-kit/metro-resolver-symlinks": "^0.1.26",
     "@testing-library/jest-native": "*",
     "@testing-library/react-native": "*",
     "react": "*",
     "react-native": "*",
-    "react-native-config": "1.5.0",
-    "react-native-svg": "13.8.0",
-    "react-native-svg-transformer": "1.0.0",
-    "metro-react-native-babel-preset": "0.74.1"
+    "react-native-config": "*",
+    "react-native-svg": "*",
+    "metro-config": "*"
   }
 }
