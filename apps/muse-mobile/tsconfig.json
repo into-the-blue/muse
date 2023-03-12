@@ -8,7 +8,12 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "composite": true,
-    "declaration": true
+    "declaration": true,
+    "baseUrl": ".",
+    "paths": {
+      "src/*": ["./src/*"],
+      "@configs/*": ["./src/configs/*"],
+    }
   },
   "files": ["../../node_modules/@nrwl/react-native/typings/svg.d.ts"],
   "include": [],
