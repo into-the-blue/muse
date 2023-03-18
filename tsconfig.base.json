@@ -17,7 +17,8 @@
     "paths": {
       "@muse/store": ["libs/store/src/index.ts"],
       "@muse/types": ["libs/types/src/index.ts"],
-      "@muse/xeno": ["libs/xeno/src/index.ts"]
+      "@muse/xeno": ["libs/xeno/src/index.ts"],
+      "@muse-mobile/*": ["./apps/muse-mobile/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -5,9 +5,7 @@
       "module-resolver",
       {
         "alias": {
-          "@src/*": "./src/*",
-          "@configs/*": "./src/configs/*",
-          "@components/*": "./src/components/*"
+          "@muse-mobile/*": "./src/*"
         }
       }
     ]

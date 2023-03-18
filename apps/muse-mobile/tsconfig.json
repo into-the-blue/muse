@@ -9,12 +9,6 @@
     "resolveJsonModule": true,
     "composite": true,
     "declaration": true,
-    "baseUrl": ".",
-    "paths": {
-      "@src/*": ["./src/*"],
-      "@configs/*": ["./src/configs/*"],
-      "@components/*": ["./src/components/*"]
-    }
   },
   "files": ["../../node_modules/@nrwl/react-native/typings/svg.d.ts"],
   "include": [],
