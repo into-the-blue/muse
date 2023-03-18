@@ -12,6 +12,7 @@
     "react-native-config": "*",
     "react-native-svg": "*",
     "@sentry/react-native": "5.1.1",
-    "metro-config": "*"
+    "metro-config": "*",
+    "babel-plugin-module-resolver": "*"
   }
 }
