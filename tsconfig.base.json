@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@muse/types": ["libs/types/src/index.ts"],
       "@muse/store": ["libs/store/src/index.ts"],
+      "@muse/types": ["libs/types/src/index.ts"],
       "@muse/xeno": ["libs/xeno/src/index.ts"]
     }
   },
