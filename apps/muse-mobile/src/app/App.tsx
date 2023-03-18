@@ -11,6 +11,7 @@ import {
   Linking,
 } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
+import { nativeCrash } from '@sentry/react-native';
 
 export const App = () => {
   const [whatsNextYCoord, setWhatsNextYCoord] = useState<number>(0);
@@ -56,6 +57,7 @@ export const App = () => {
               <TouchableOpacity
                 style={styles.whatsNextButton}
                 onPress={() => {
+                  nativeCrash();
                   scrollViewRef.current?.scrollTo({
                     x: 0,
                     y: whatsNextYCoord,
