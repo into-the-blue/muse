@@ -11,7 +11,7 @@
     "react-native": "*",
     "react-native-config": "*",
     "react-native-svg": "*",
-    "@sentry/react-native": "^5.1.0",
+    "@sentry/react-native": "5.1.1",
     "metro-config": "*"
   }
 }

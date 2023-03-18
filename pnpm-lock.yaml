@@ -129,7 +129,7 @@ importers:
     specifiers:
       '@react-native-async-storage/async-storage': '*'
       '@rnx-kit/metro-resolver-symlinks': ^0.1.26
-      '@sentry/react-native': ^5.1.0
+      '@sentry/react-native': 5.1.1
       '@testing-library/jest-native': '*'
       '@testing-library/react-native': '*'
       metro-config: '*'
