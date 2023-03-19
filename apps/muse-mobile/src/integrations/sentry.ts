@@ -1,5 +1,5 @@
 import * as Sentry from '@sentry/react-native';
-import Config from '@muse-mobile/configs/sentry';
+import Config from '../configs/sentry';
 
 Sentry.init({
   dsn: Config.dsn,
