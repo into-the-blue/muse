@@ -1,0 +1,16 @@
+{
+  "name": "muse-mobile",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-native": "*",
+    "@testing-library/react-native": "*",
+    "react-native": "*",
+    "expo": "*",
+    "react-native-svg": "*",
+    "react-native-web": "*"
+  },
+  "scripts": {
+    "postinstall": "cd ../../ && npx nx sync-deps muse-mobile && npx nx ensure-symlink muse-mobile"
+  }
+}
