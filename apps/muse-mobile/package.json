@@ -4,14 +4,20 @@
   "private": true,
   "dependencies": {
     "@react-native-async-storage/async-storage": "*",
+    "@react-navigation/native": "*",
+    "@react-navigation/native-stack": "*",
     "@rnx-kit/metro-resolver-symlinks": "^0.1.26",
+    "@sentry/react-native": "5.1.1",
     "@testing-library/jest-native": "*",
     "@testing-library/react-native": "*",
+    "babel-plugin-module-resolver": "*",
+    "metro-config": "*",
     "react": "*",
     "react-native": "*",
     "react-native-config": "*",
+    "react-native-safe-area-context": "*",
+    "react-native-screens": "*",
     "react-native-svg": "*",
-    "@sentry/react-native": "5.1.1",
-    "metro-config": "*"
+    "styled-components": "*"
   }
 }
