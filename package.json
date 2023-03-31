@@ -2,9 +2,7 @@
   "name": "muse",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {
-    "nx": "nx"
-  },
+  "scripts": {},
   "private": true,
   "devDependencies": {
     "@babel/preset-react": "^7.14.5",
