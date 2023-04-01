@@ -3,16 +3,21 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@babel/core": "*",
+    "@react-native-async-storage/async-storage": "*",
+    "@react-navigation/native": "^6.1.6",
+    "@react-navigation/native-stack": "^6.9.12",
+    "@sentry/react-native": "5.1.1",
     "@testing-library/jest-native": "*",
     "@testing-library/react-native": "*",
-    "react-native": "*",
     "expo": "*",
-    "react-native-svg": "*",
-    "react-native-web": "*",
     "expo-splash-screen": "*",
     "expo-status-bar": "*",
     "react": "*",
-    "@babel/core": "*"
+    "react-native": "*",
+    "react-native-svg": "*",
+    "react-native-web": "*",
+    "react-native-config": "^1.5.0"
   },
   "scripts": {
     "NOT_USED_postinstall": "cd ../../ && npx nx sync-deps muse-mobile && npx nx ensure-symlink muse-mobile",
