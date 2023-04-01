@@ -15,7 +15,7 @@
     "@babel/core": "*"
   },
   "scripts": {
-    "postinstall": "cd ../../ && npx nx sync-deps muse-mobile && npx nx ensure-symlink muse-mobile",
+    "NOT_USED_postinstall": "cd ../../ && npx nx sync-deps muse-mobile && npx nx ensure-symlink muse-mobile",
     "start": "expo start --dev-client",
     "android": "expo run:android",
     "ios": "expo run:ios"

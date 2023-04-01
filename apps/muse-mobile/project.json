@@ -19,7 +19,9 @@
     "run-ios": {
       "executor": "@nrwl/expo:run",
       "options": {
-        "platform": "ios"
+        "platform": "ios",
+        "install": false,
+        "device": "iPhone 14"
       }
     },
     "run-android": {
