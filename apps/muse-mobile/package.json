@@ -11,9 +11,11 @@
     "@testing-library/jest-native": "*",
     "@testing-library/react-native": "*",
     "@types/styled-components-react-native": "^5.2.1",
+    "enhanced-resolve": "*",
     "expo": "*",
     "expo-splash-screen": "*",
     "expo-status-bar": "*",
+    "metro-resolver": "*",
     "react": "*",
     "react-native": "*",
     "react-native-config": "^1.5.0",
@@ -21,7 +23,8 @@
     "react-native-screens": "^3.20.0",
     "react-native-svg": "*",
     "react-native-web": "*",
-    "twrnc": "^3.6.0"
+    "twrnc": "^3.6.0",
+    "@types/metro-resolver": "*"
   },
   "scripts": {
     "NOT_USED_postinstall": "cd ../../ && npx nx sync-deps muse-mobile && npx nx ensure-symlink muse-mobile",
@@ -30,6 +33,8 @@
     "ios": "expo run:ios"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "@types/metro-resolver": "^0.76.1",
+    "enhanced-resolve": "^5.12.0"
   }
 }

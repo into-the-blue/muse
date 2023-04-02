@@ -172,10 +172,13 @@ importers:
       '@sentry/react-native': 5.1.1
       '@testing-library/jest-native': '*'
       '@testing-library/react-native': '*'
+      '@types/metro-resolver': '*'
       '@types/styled-components-react-native': ^5.2.1
+      enhanced-resolve: '*'
       expo: '*'
       expo-splash-screen: '*'
       expo-status-bar: '*'
+      metro-resolver: '*'
       react: '*'
       react-native: '*'
       react-native-config: ^1.5.0
@@ -192,10 +195,13 @@ importers:
       '@sentry/react-native': 5.1.1_asg77qyzeoxodznpkubmbgme7u
       '@testing-library/jest-native': 5.4.2_asg77qyzeoxodznpkubmbgme7u
       '@testing-library/react-native': 11.5.2_asg77qyzeoxodznpkubmbgme7u
+      '@types/metro-resolver': 0.76.1
       '@types/styled-components-react-native': 5.2.1
+      enhanced-resolve: 5.12.0
       expo: 48.0.6_@babel+core@7.21.4
       expo-splash-screen: 0.18.1_expo@48.0.6
       expo-status-bar: 1.4.4
+      metro-resolver: 0.74.1
       react: 18.2.0
       react-native: 0.71.4_duavcg6prxxl5begav3y2fyxcu
       react-native-config: 1.5.0
@@ -7234,6 +7240,10 @@ packages:
       '@types/unist': 2.0.6
     dev: true
 
+  /@types/metro-resolver/0.76.1:
+    resolution: {integrity: sha512-GAzz8yV7azX1RWmRSLsdPe1ml2vOmaJftirLR/7lSMmDOPJ8G/n8VdnjuoI0uOvth7EmFRwyGBBzF7nceenvOQ==}
+    dev: false
+
   /@types/mime/3.0.1:
     resolution: {integrity: sha512-Y4XFY5VJAuw0FgAqPNd6NNoV44jbq9Bz2L7Rh/J6jLTiHBSBJa9fxqQIvkIld4GsoDOcCbvzOUAbLPsSKKg+uA==}
     dev: true
@@ -11406,7 +11416,6 @@ packages:
     dependencies:
       graceful-fs: 4.2.11
       tapable: 2.2.1
-    dev: true
 
   /enquirer/2.3.6:
     resolution: {integrity: sha512-yjNnPr315/FjS4zIsUxYguYUPP2e1NK4d7E7ZOLiyYCcbFBiTMyID+2wvm2w6+pZ/odMA7cRkjhsPbltwBOrLg==}
@@ -14796,7 +14805,7 @@ packages:
       pretty-format: 29.5.0
       slash: 3.0.0
       strip-json-comments: 3.1.1
-      ts-node: 10.9.1_bdgp3l2zgaopogaavxusmetvge
+      ts-node: 10.9.1_o6avl3oodj6mwqsx3rm2wfkgv4
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -16914,7 +16923,6 @@ packages:
     resolution: {integrity: sha512-1Ju7bvUnmy1lmsYwhujWsP4qxBVfVF7CkKiUCRolUbyZzGgymyVGXVN5yEnbXXNHgBAOlr4+2KKYjoXzhXBo4g==}
     dependencies:
       absolute-path: 0.0.0
-    dev: true
 
   /metro-runtime/0.73.8:
     resolution: {integrity: sha512-M+Bg9M4EN5AEpJ8NkiUsawD75ifYvYfHi05w6QzHXaqOrsTeaRbbeLuOGCYxU2f/tPg17wQV97/rqUQzs9qEtA==}
@@ -21533,7 +21541,6 @@ packages:
   /tapable/2.2.1:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
     engines: {node: '>=6'}
-    dev: true
 
   /tar-fs/2.1.1:
     resolution: {integrity: sha512-V0r2Y9scmbDRLCNex/+hYzvp/zyYjvFbHPNgVTKfQvVrb6guiE/fxP+XblDNR011utopbkex2nM4dHNV6GDsng==}
