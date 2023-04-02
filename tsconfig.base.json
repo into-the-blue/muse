@@ -17,8 +17,8 @@
     "paths": {
       "@muse/store": ["libs/store/src/index.ts"],
       "@muse/types": ["libs/types/src/index.ts"],
-      "@muse/xeno": ["libs/xeno/src/index.ts"],
-      "@muse/ui-native": ["libs/ui-native/src/index.ts"]
+      "@muse/ui-native": ["libs/ui-native/src/index.ts"],
+      "@muse/xeno": ["libs/xeno/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

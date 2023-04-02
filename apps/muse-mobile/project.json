@@ -5,7 +5,7 @@
   "projectType": "application",
   "targets": {
     "start": {
-      "executor": "@nrwl/react-native:start",
+      "executor": "@nrwl/expo:start",
       "options": {
         "port": 8081
       }
@@ -17,47 +17,99 @@
       }
     },
     "run-ios": {
-      "executor": "@nrwl/react-native:run-ios",
+      "executor": "@nrwl/expo:run",
       "options": {
-        "simulator": "iPhone 14",
-        "install": false
-      }
-    },
-    "bundle-ios": {
-      "executor": "@nrwl/react-native:bundle",
-      "options": {
-        "entryFile": "src/main.tsx",
         "platform": "ios",
-        "bundleOutput": "dist/apps/muse-mobile/ios/main.jsbundle"
+        "install": false,
+        "device": "iPhone 14"
       }
     },
     "run-android": {
-      "executor": "@nrwl/react-native:run-android",
+      "executor": "@nrwl/expo:run",
+      "options": {
+        "platform": "android"
+      }
+    },
+    "build": {
+      "executor": "@nrwl/expo:build",
+      "options": {}
+    },
+    "build-list": {
+      "executor": "@nrwl/expo:build-list",
+      "options": {}
+    },
+    "download": {
+      "executor": "@nrwl/expo:download",
+      "options": {
+        "output": "apps/muse-mobile/dist"
+      }
+    },
+    "build-ios": {
+      "executor": "@nrwl/expo:build-ios",
       "options": {}
     },
     "build-android": {
-      "executor": "@nrwl/react-native:build-android",
-      "outputs": [
-        "{projectRoot}/android/app/build/outputs/bundle",
-        "{projectRoot}/android/app/build/outputs/apk"
-      ],
+      "executor": "@nrwl/expo:build-android",
       "options": {}
     },
-    "bundle-android": {
-      "executor": "@nrwl/react-native:bundle",
-      "options": {
-        "entryFile": "src/main.tsx",
-        "platform": "android",
-        "bundleOutput": "dist/apps/muse-mobile/android/main.jsbundle"
-      }
+    "build-web": {
+      "executor": "@nrwl/expo:build-web",
+      "options": {}
+    },
+    "build-status": {
+      "executor": "@nrwl/expo:build-web",
+      "options": {}
     },
     "sync-deps": {
-      "executor": "@nrwl/react-native:sync-deps",
+      "executor": "@nrwl/expo:sync-deps",
       "options": {}
     },
     "ensure-symlink": {
-      "executor": "@nrwl/react-native:ensure-symlink",
+      "executor": "@nrwl/expo:ensure-symlink",
       "options": {}
+    },
+    "publish": {
+      "executor": "@nrwl/expo:publish",
+      "options": {}
+    },
+    "publish-set": {
+      "executor": "@nrwl/expo:publish-set",
+      "options": {}
+    },
+    "rollback": {
+      "executor": "@nrwl/expo:rollback",
+      "options": {}
+    },
+    "prebuild": {
+      "executor": "@nrwl/expo:prebuild",
+      "options": {}
+    },
+    "eject": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx prebuild muse-mobile"
+      }
+    },
+    "install": {
+      "executor": "@nrwl/expo:install",
+      "options": {}
+    },
+    "update": {
+      "executor": "@nrwl/expo:update",
+      "options": {}
+    },
+    "export": {
+      "executor": "@nrwl/expo:export",
+      "options": {
+        "platform": "all",
+        "outputDir": "../../dist/apps/muse-mobile"
+      }
+    },
+    "export-web": {
+      "executor": "@nrwl/expo:export",
+      "options": {
+        "bundler": "metro"
+      }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",

@@ -3,21 +3,38 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@babel/core": "*",
     "@react-native-async-storage/async-storage": "*",
-    "@react-navigation/native": "*",
-    "@react-navigation/native-stack": "*",
-    "@rnx-kit/metro-resolver-symlinks": "^0.1.26",
+    "@react-navigation/native": "^6.1.6",
+    "@react-navigation/native-stack": "^6.9.12",
     "@sentry/react-native": "5.1.1",
     "@testing-library/jest-native": "*",
     "@testing-library/react-native": "*",
-    "babel-plugin-module-resolver": "*",
-    "metro-config": "*",
+    "@types/styled-components-react-native": "^5.2.1",
+    "enhanced-resolve": "*",
+    "expo": "*",
+    "expo-splash-screen": "*",
+    "expo-status-bar": "*",
+    "metro-resolver": "*",
     "react": "*",
     "react-native": "*",
-    "react-native-config": "*",
-    "react-native-safe-area-context": "*",
-    "react-native-screens": "*",
+    "react-native-config": "^1.5.0",
+    "react-native-safe-area-context": "^4.5.0",
+    "react-native-screens": "^3.20.0",
     "react-native-svg": "*",
-    "styled-components": "*"
+    "react-native-web": "*",
+    "twrnc": "^3.6.0",
+    "@types/metro-resolver": "*"
+  },
+  "scripts": {
+    "NOT_USED_postinstall": "cd ../../ && npx nx sync-deps muse-mobile && npx nx ensure-symlink muse-mobile",
+    "start": "expo start --dev-client",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@types/metro-resolver": "^0.76.1",
+    "enhanced-resolve": "^5.12.0"
   }
 }

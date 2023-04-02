@@ -1,0 +1,1 @@
+import '@types/styled-components-react-native';
