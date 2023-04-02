@@ -5,19 +5,13 @@ import {
   StyleSheet,
   ScrollView,
   View,
-  Text,
   StatusBar,
   TouchableOpacity,
   Linking,
 } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import { nativeCrash } from '@sentry/react-native';
-import styled from 'styled-components/native';
-import tw from 'twrnc';
-
-const StyledText = styled.Text`
-  color: red;
-`;
+import { Text } from '@muse/ui-native';
 
 export const Home = () => {
   const [whatsNextYCoord, setWhatsNextYCoord] = useState<number>(0);
@@ -34,7 +28,6 @@ export const Home = () => {
           style={styles.scrollView}
         >
           <View style={styles.section}>
-            <Text style={tw`bg-blue-500`}>{'Test test'}</Text>
             <Text style={styles.textLg}>Hello there,</Text>
             <Text style={[styles.textXL, styles.appTitleText]} testID="heading">
               Welcome MuseMobile 👋
