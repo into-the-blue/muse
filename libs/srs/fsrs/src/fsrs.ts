@@ -24,14 +24,42 @@ const rateAgain = (card: Card) => {
 
 const rateHard = (card: Card) => {
   const nextCard = { ...card };
+  switch (nextCard.state) {
+    case LearningState.New:
+      nextCard.state = LearningState.Learning;
+      break;
+    case LearningState.Learning:
+    case LearningState.Relearning:
+    case LearningState.Review:
+      nextCard.state = LearningState.Review;
+      break;
+  }
 };
 
 const rateGood = (card: Card) => {
   const nextCard = { ...card };
+  switch (nextCard.state) {
+    case LearningState.New:
+      nextCard.state = LearningState.Learning;
+      break;
+    case LearningState.Learning:
+    case LearningState.Relearning:
+    case LearningState.Review:
+      nextCard.state = LearningState.Review;
+      break;
+  }
 };
 
 const rateEasy = (card: Card) => {
   const nextCard = { ...card };
+  switch (nextCard.state) {
+    case LearningState.New:
+    case LearningState.Learning:
+    case LearningState.Relearning:
+    case LearningState.Review:
+      nextCard.state = LearningState.Review;
+      break;
+  }
 };
 
 const reviewCard = (card: Card, rating: ReviewRating) => {
