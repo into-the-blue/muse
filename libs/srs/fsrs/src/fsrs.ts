@@ -1,6 +1,6 @@
 import { getNewCard } from './card';
 import { Card, LearningState, ReviewRating } from './type';
-import { diffDays, today, getRatingMap } from './util';
+import { diffDays, today, getRatingMap, addTime } from './util';
 
 const Weight = [1, 1, 5, -0.5, -0.5, 0.2, 1.4, -0.12, 0.8, 2, -0.2, 0.2, 1];
 const Params = {
@@ -110,7 +110,35 @@ const getNextLapses = (card: Card, rating: ReviewRating) => {
   return card.lapses;
 };
 
-export const reviewCard = (card: Card, rating: ReviewRating) => {
+const _getNextDueDateNew = (
+  card: Card,
+  rating: ReviewRating,
+  now: Date
+): Card => {
+  const _card = { ...card };
+  if (
+    [ReviewRating.Again, ReviewRating.Hard, ReviewRating.Good].includes(rating)
+  ) {
+    _card.due = addTime(now, 5 * rating, 'minute').toISOString();
+  }
+};
+const getNextDueDate = (card: Card, rating: ReviewRating, now: Date) => {
+  switch (card.state) {
+    case LearningState.New:
+      return;
+    case LearningState.Learning:
+    case LearningState.Relearning:
+      break;
+    case LearningState.Review:
+      break;
+  }
+};
+
+export const reviewCard = (
+  card: Card,
+  rating: ReviewRating,
+  date = new Date()
+) => {
   const _card = { ...card };
   if (_card.state !== LearningState.New) {
     card.elapsedDays = diffDays(_card.lastReviewDate);
@@ -122,7 +150,7 @@ export const reviewCard = (card: Card, rating: ReviewRating) => {
   _card.state = getNextState(_card.state, rating);
   // 2.get lapses
   _card.lapses = getNextLapses(card, rating);
-  //3.get difficulty and stability
+  // 3.get difficulty and stability
   if (_card.state === LearningState.New) {
     // 3.1.init difficulty and stability
     _card.difficulty = initDifficulty(rating);
@@ -133,4 +161,5 @@ export const reviewCard = (card: Card, rating: ReviewRating) => {
     _card.difficulty = getNextDifficulty(card, rating);
     _card.stability = getNextStability(card, rating);
   }
+  // 4.get due date
 };

@@ -22,3 +22,29 @@ export const getRatingMap = <Again, Hard, Good, Easy>(
     [ReviewRating.Easy]: easy,
   };
 };
+
+export const addTime = (
+  date: Date,
+  quantity: number,
+  unit: 'minute' | 'day' | 'week' | 'month' | 'year'
+) => {
+  const newDate = new Date(date.getTime());
+  switch (unit) {
+    case 'minute':
+      newDate.setMinutes(newDate.getMinutes() + quantity);
+      break;
+    case 'day':
+      newDate.setDate(newDate.getDate() + quantity);
+      break;
+    case 'week':
+      newDate.setDate(newDate.getDate() + quantity * 7);
+      break;
+    case 'month':
+      newDate.setMonth(newDate.getMonth() + quantity);
+      break;
+    case 'year':
+      newDate.setFullYear(newDate.getFullYear() + quantity);
+      break;
+  }
+  return newDate;
+};
