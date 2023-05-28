@@ -258,6 +258,65 @@ describe('Test fsrs', () => {
   });
 
   test('Fifth iterate - Good', () => {
-    expect(1).toBe(1);
+    const lastDue = new Date('2022-12-03 12:45').toISOString();
+    const goodCard = {
+      due: addTime(lastDue, 3, 'day').toISOString(),
+      stability: 1.9984214794159336,
+      difficulty: 5.800000000000001,
+      elapsedDays: 0,
+      scheduledDays: 3,
+      reps: 4,
+      lapses: 1,
+      state: 2,
+      lastReviewDate: lastDue,
+    };
+    const { again, hard, good, easy } = getAllReviewResults(
+      goodCard,
+      new Date(goodCard.due)
+    );
+    expect(again).toEqual({
+      due: addTime(goodCard.due, 5, 'minute').toISOString(),
+      stability: 1.831993291429779,
+      difficulty: 6.440000000000001,
+      elapsedDays: 3,
+      scheduledDays: 0,
+      reps: 5,
+      lapses: 2,
+      state: 3,
+      lastReviewDate: goodCard.due,
+    });
+    expect(hard).toEqual({
+      due: addTime(goodCard.due, 2, 'day').toISOString(),
+      stability: 6.591134142748276,
+      difficulty: 6.040000000000001,
+      elapsedDays: 3,
+      scheduledDays: 2,
+      reps: 5,
+      lapses: 1,
+      state: 2,
+      lastReviewDate: goodCard.due,
+    });
+    expect(good).toEqual({
+      due: addTime(goodCard.due, 7, 'day').toISOString(),
+      stability: 6.96151419624282,
+      difficulty: 5.640000000000001,
+      elapsedDays: 3,
+      scheduledDays: 7,
+      reps: 5,
+      lapses: 1,
+      state: 2,
+      lastReviewDate: goodCard.due,
+    });
+    expect(easy).toEqual({
+      due: addTime(goodCard.due, 9, 'day').toISOString(),
+      stability: 7.331894249737363,
+      difficulty: 5.240000000000001,
+      elapsedDays: 3,
+      scheduledDays: 9,
+      reps: 5,
+      lapses: 1,
+      state: 2,
+      lastReviewDate: goodCard.due,
+    });
   });
 });
