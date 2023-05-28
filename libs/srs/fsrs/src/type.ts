@@ -23,3 +23,20 @@ export type Card = {
   state: LearningState;
   lastReviewDate: string;
 };
+
+export type Context = {
+  originCard: Card;
+  card: Card;
+  stability: {
+    [ReviewRating.Again]: number;
+    [ReviewRating.Hard]: number;
+    [ReviewRating.Good]: number;
+    [ReviewRating.Easy]: number;
+  };
+  difficulty: {
+    [ReviewRating.Again]: number;
+    [ReviewRating.Hard]: number;
+    [ReviewRating.Good]: number;
+    [ReviewRating.Easy]: number;
+  };
+};

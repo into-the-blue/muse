@@ -1,8 +1,7 @@
 import { Card, ReviewRating, LearningState } from './type';
-import { today } from './util';
 export const getNewCard = (): Card => {
   return {
-    due: today(),
+    due: new Date().toISOString(),
     stability: 0,
     difficulty: 0,
     elapsedDays: 0,
@@ -10,6 +9,6 @@ export const getNewCard = (): Card => {
     reps: 0,
     lapses: 0,
     state: LearningState.New,
-    lastReviewDate: today(),
+    lastReviewDate: new Date().toISOString(),
   };
 };
