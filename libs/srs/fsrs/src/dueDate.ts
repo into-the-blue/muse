@@ -35,18 +35,19 @@ const _getNextDueDateLearning = (
   rating: ReviewRating,
   now: Date
 ): Pick<Card, 'due' | 'scheduledDays'> => {
-  const hardInterval = calNextInterval(stability[ReviewRating.Hard]);
-  const goodInterval = Math.max(
-    calNextInterval(stability[ReviewRating.Good]),
-    hardInterval + 1
-  );
+  const hardInterval = 0;
+  const goodInterval = calNextInterval(stability[ReviewRating.Good]);
   const easyInterval = Math.max(
     calNextInterval(stability[ReviewRating.Easy] * Params.easyBonus),
     goodInterval + 1
   );
   const due = getRatingMap(
     addTime(now, 5, 'minute').toISOString(),
-    addTime(now, hardInterval, 'day').toISOString(),
+    addTime(
+      now,
+      hardInterval || 10,
+      hardInterval ? 'day' : 'minute'
+    ).toISOString(),
     addTime(now, goodInterval, 'day').toISOString(),
     addTime(now, easyInterval, 'day').toISOString()
   )[rating];

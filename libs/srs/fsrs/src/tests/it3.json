@@ -1,0 +1,57 @@
+{
+  "startCard": {
+    "due": "2022-12-02T12:40:00",
+    "stability": 3.0,
+    "difficulty": 5.0,
+    "elapsedDays": 0,
+    "scheduledDays": 3,
+    "reps": 2,
+    "lapses": 0,
+    "state": 2,
+    "lastReviewDate": "2022-11-29T12:40:00"
+  },
+  "again": {
+    "due": "2022-12-02T12:45:00",
+    "stability": 1.937305431562018,
+    "difficulty": 5.800000000000001,
+    "elapsedDays": 3,
+    "scheduledDays": 0,
+    "reps": 3,
+    "lapses": 1,
+    "state": 3,
+    "lastReviewDate": "2022-12-02T12:40:00"
+  },
+  "hard": {
+    "due": "2022-12-06T12:40:00",
+    "stability": 7.97329908607912,
+    "difficulty": 5.4,
+    "elapsedDays": 3,
+    "scheduledDays": 4,
+    "reps": 3,
+    "lapses": 0,
+    "state": 2,
+    "lastReviewDate": "2022-12-02T12:40:00"
+  },
+  "good": {
+    "due": "2022-12-10T12:40:00",
+    "stability": 8.328534735084771,
+    "difficulty": 5.0,
+    "elapsedDays": 3,
+    "scheduledDays": 8,
+    "reps": 3,
+    "lapses": 0,
+    "state": 2,
+    "lastReviewDate": "2022-12-02T12:40:00"
+  },
+  "easy": {
+    "due": "2022-12-12T12:40:00",
+    "stability": 8.683770384090423,
+    "difficulty": 4.6,
+    "elapsedDays": 3,
+    "scheduledDays": 10,
+    "reps": 3,
+    "lapses": 0,
+    "state": 2,
+    "lastReviewDate": "2022-12-02T12:40:00"
+  }
+}

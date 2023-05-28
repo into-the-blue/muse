@@ -66,13 +66,13 @@ export const NEXT_STATE_MAP = {
   ),
   [LearningState.Learning]: getRatingMap(
     LearningState.Learning,
-    LearningState.Review,
+    LearningState.Learning,
     LearningState.Review,
     LearningState.Review
   ),
   [LearningState.Relearning]: getRatingMap(
     LearningState.Relearning,
-    LearningState.Review,
+    LearningState.Relearning,
     LearningState.Review,
     LearningState.Review
   ),
