@@ -26,7 +26,7 @@ export type Card = {
 
 export type Context = {
   originCard: Card;
-  card: Card;
+  // card: Card;
   stability: {
     [ReviewRating.Again]: number;
     [ReviewRating.Hard]: number;

@@ -36,10 +36,11 @@ const _nextRecallStability = (
 ) => {
   return (
     lastStability *
-    (1 + Math.exp(Params.w[6])) *
-    (11 - lastDifficulty) *
-    Math.pow(lastStability, Params.w[7]) *
-    (Math.exp((1 - retrievability) * Params.w[8]) - 1)
+    (1 +
+      Math.exp(Params.w[6]) *
+        (11 - lastDifficulty) *
+        Math.pow(lastStability, Params.w[7]) *
+        (Math.exp((1 - retrievability) * Params.w[8]) - 1))
   );
 };
 
@@ -48,7 +49,7 @@ const _calNextStability = (
     originCard,
     difficulty,
     elapsedDays,
-  }: Pick<Context, 'card' | 'difficulty' | 'originCard' | 'elapsedDays'>,
+  }: Pick<Context, 'difficulty' | 'originCard' | 'elapsedDays'>,
   rating: ReviewRating
 ) => {
   const retrievability = Math.exp(
@@ -69,7 +70,7 @@ const _calNextStability = (
 };
 
 export const getStability = (
-  context: Pick<Context, 'card' | 'difficulty' | 'originCard' | 'elapsedDays'>,
+  context: Pick<Context, 'difficulty' | 'originCard' | 'elapsedDays'>,
   rating: ReviewRating
 ) => {
   if (context.originCard.state === LearningState.New) {

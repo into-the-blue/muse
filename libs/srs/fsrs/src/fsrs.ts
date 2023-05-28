@@ -37,7 +37,6 @@ export const reviewCard = (
     getStability(_context, ReviewRating.Easy)
   );
   const context: Context = {
-    card: _card,
     originCard: card,
     stability,
     difficulty,
