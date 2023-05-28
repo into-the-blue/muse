@@ -22,24 +22,29 @@ export const reviewCard = (
   now = new Date()
 ): Card => {
   const _card = { ...card };
+  const difficulty = getRatingMap(
+    getDifficulty(card, ReviewRating.Again),
+    getDifficulty(card, ReviewRating.Hard),
+    getDifficulty(card, ReviewRating.Good),
+    getDifficulty(card, ReviewRating.Easy)
+  );
+  const elapsedDays = diffDays(card.lastReviewDate, now);
+  const _context = { card: _card, originCard: card, difficulty, elapsedDays };
+  const stability = getRatingMap(
+    getStability(_context, ReviewRating.Again),
+    getStability(_context, ReviewRating.Hard),
+    getStability(_context, ReviewRating.Good),
+    getStability(_context, ReviewRating.Easy)
+  );
   const context: Context = {
     card: _card,
     originCard: card,
-    stability: getRatingMap(
-      getStability(card, ReviewRating.Again),
-      getStability(card, ReviewRating.Hard),
-      getStability(card, ReviewRating.Good),
-      getStability(card, ReviewRating.Easy)
-    ),
-    difficulty: getRatingMap(
-      getDifficulty(card, ReviewRating.Again),
-      getDifficulty(card, ReviewRating.Hard),
-      getDifficulty(card, ReviewRating.Good),
-      getDifficulty(card, ReviewRating.Easy)
-    ),
+    stability,
+    difficulty,
+    elapsedDays,
   };
   if (_card.state !== LearningState.New) {
-    _card.elapsedDays = diffDays(card.lastReviewDate, now);
+    _card.elapsedDays = context.elapsedDays;
   }
   _card.reps += 1; // repeat times
   _card.lastReviewDate = now.toISOString();

@@ -32,11 +32,11 @@ export const getRatingMap = <
 };
 
 export const addTime = (
-  date: Date,
+  date: Date | string,
   quantity: number,
   unit: 'minute' | 'day' | 'week' | 'month' | 'year'
 ) => {
-  const newDate = new Date(date.getTime());
+  const newDate = new Date(date);
   switch (unit) {
     case 'minute':
       newDate.setMinutes(newDate.getMinutes() + quantity);

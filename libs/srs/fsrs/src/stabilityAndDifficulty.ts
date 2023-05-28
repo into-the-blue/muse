@@ -1,5 +1,6 @@
 import { Params, meanReversion } from './util';
-import { ReviewRating, Card, LearningState } from './type';
+import { ReviewRating, Card, LearningState, Context } from './type';
+
 const _initDifficulty = (rating: ReviewRating) => {
   const calculated = Math.max(Params.w[2] + Params.w[3] * (rating - 2), 1);
   return Math.min(calculated, 10);
@@ -42,28 +43,42 @@ const _nextRecallStability = (
   );
 };
 
-const _calNextStability = (card: Card, rating: ReviewRating) => {
+const _calNextStability = (
+  {
+    originCard,
+    difficulty,
+    elapsedDays,
+  }: Pick<Context, 'card' | 'difficulty' | 'originCard' | 'elapsedDays'>,
+  rating: ReviewRating
+) => {
   const retrievability = Math.exp(
-    (Math.log(0.9) * card.elapsedDays) / card.stability
+    (Math.log(0.9) * elapsedDays) / originCard.stability
   );
   if (rating === ReviewRating.Again) {
     return _nextForgetStability(
-      card.difficulty,
-      card.stability,
+      difficulty[ReviewRating.Again],
+      originCard.stability,
       retrievability
     );
   }
-  return _nextRecallStability(card.difficulty, card.stability, retrievability);
+  return _nextRecallStability(
+    difficulty[rating],
+    originCard.stability,
+    retrievability
+  );
 };
 
-export const getStability = (card: Card, rating: ReviewRating) => {
-  if (card.state === LearningState.New) {
+export const getStability = (
+  context: Pick<Context, 'card' | 'difficulty' | 'originCard' | 'elapsedDays'>,
+  rating: ReviewRating
+) => {
+  if (context.originCard.state === LearningState.New) {
     return _initStability(rating);
   }
-  if (card.state === LearningState.Review) {
-    return _calNextStability(card, rating);
+  if (context.originCard.state === LearningState.Review) {
+    return _calNextStability(context, rating);
   }
-  return card.stability;
+  return context.originCard.stability;
 };
 
 export const getDifficulty = (card: Card, rating: ReviewRating) => {

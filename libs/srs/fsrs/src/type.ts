@@ -39,4 +39,5 @@ export type Context = {
     [ReviewRating.Good]: number;
     [ReviewRating.Easy]: number;
   };
+  elapsedDays: number;
 };
