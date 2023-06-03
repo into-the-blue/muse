@@ -17,16 +17,6 @@
     "@nrwl/js": "15.9.2",
     "@nrwl/linter": "15.9.2",
     "@nrwl/react": "15.9.2",
-    "@nrwl/storybook": "15.9.2",
-    "@storybook/addon-essentials": "^6.5.15",
-    "@storybook/addon-ondevice-actions": "6.0.1-beta.11",
-    "@storybook/addon-ondevice-backgrounds": "6.0.1-beta.11",
-    "@storybook/addon-ondevice-controls": "6.0.1-beta.11",
-    "@storybook/addon-ondevice-notes": "6.0.1-beta.11",
-    "@storybook/builder-webpack5": "^6.5.15",
-    "@storybook/core-server": "^6.5.15",
-    "@storybook/manager-webpack5": "^6.5.15",
-    "@storybook/react-native": "^6.0.1-beta.11",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/jest-native": "5.4.2",
     "@testing-library/react": "13.4.0",
@@ -65,14 +55,13 @@
     "metro-resolver": "0.74.1",
     "nx": "15.9.2",
     "prettier": "^2.6.2",
-    "react-native-storybook-loader": "^2.0.5",
     "react-native-svg": "13.4.0",
     "react-native-svg-transformer": "1.0.0",
     "react-test-renderer": "18.2.0",
     "rxjs": "^7.8.0",
-    "styled-components": "^5.3.9",
     "ts-jest": "29.0.5",
     "ts-node": "10.9.1",
+    "tslib": "^2.3.0",
     "typescript": "~4.9.5"
   },
   "workspaces": [
@@ -92,7 +81,7 @@
     "react-dom": "18.2.0",
     "react-native": "0.71.4",
     "react-native-web": "~0.18.12",
-    "tslib": "^2.3.0",
-    "twrnc": "^3.6.0"
+    "twrnc": "^3.6.0",
+    "styled-components": "^5.3.9"
   }
 }
