@@ -58,7 +58,10 @@
     },
     "install": {
       "executor": "@nx/expo:install",
-      "options": {}
+      "options": {
+        "check": false,
+        "fix": false
+      }
     },
     "update": {
       "executor": "@nx/expo:update",
