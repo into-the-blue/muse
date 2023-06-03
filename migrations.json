@@ -2,11 +2,147 @@
   "migrations": [
     {
       "cli": "nx",
-      "version": "15.9.1-beta.0",
-      "description": "Add target build-ios and pod-install for react native apps",
-      "factory": "./src/migrations/update-15-9-1/add-build-ios-target",
-      "package": "@nrwl/react-native",
-      "name": "add-build-ios-target"
+      "version": "16.0.0-beta.0",
+      "description": "Remove @nrwl/cli.",
+      "implementation": "./src/migrations/update-16-0-0/remove-nrwl-cli",
+      "package": "nx",
+      "name": "16.0.0-remove-nrwl-cli"
+    },
+    {
+      "cli": "nx",
+      "version": "16.0.0-beta.9",
+      "description": "Replace `dependsOn.projects` and `inputs` definitions with new configuration format.",
+      "implementation": "./src/migrations/update-16-0-0/update-depends-on-to-tokens",
+      "package": "nx",
+      "name": "16.0.0-tokens-for-depends-on"
+    },
+    {
+      "cli": "nx",
+      "version": "16.0.0-beta.0",
+      "description": "Replace @nrwl/nx-cloud with nx-cloud",
+      "implementation": "./src/migrations/update-16-0-0/update-nx-cloud-runner",
+      "package": "nx",
+      "name": "16.0.0-update-nx-cloud-runner"
+    },
+    {
+      "cli": "nx",
+      "version": "16.2.0-beta.0",
+      "description": "Remove outputPath from run commands",
+      "implementation": "./src/migrations/update-16-2-0/remove-run-commands-output-path",
+      "package": "nx",
+      "name": "16.2.0-remove-output-path-from-run-commands"
+    },
+    {
+      "cli": "nx",
+      "version": "16.0.0-beta.1",
+      "description": "Replace @nx/js with @nx/js",
+      "implementation": "./src/migrations/update-16-0-0-add-nx-packages/update-16-0-0-add-nx-packages",
+      "package": "@nx/js",
+      "name": "update-16-0-0-add-nx-packages"
+    },
+    {
+      "cli": "nx",
+      "version": "16.0.0-beta.1",
+      "description": "Replace @nx/linter with @nx/linter",
+      "implementation": "./src/migrations/update-16-0-0-add-nx-packages/update-16-0-0-add-nx-packages",
+      "package": "@nx/linter",
+      "name": "update-16-0-0-add-nx-packages"
+    },
+    {
+      "cli": "nx",
+      "version": "16.0.0-beta.1",
+      "description": "Replace @nx/jest with @nx/jest",
+      "implementation": "./src/migrations/update-16-0-0-add-nx-packages/update-16-0-0-add-nx-packages",
+      "package": "@nx/jest",
+      "name": "update-16-0-0-add-nx-packages"
+    },
+    {
+      "cli": "nx",
+      "version": "16.0.0-beta.1",
+      "description": "Replace @nx/eslint-plugin with @nx/eslint-plugin",
+      "implementation": "./src/migrations/update-16-0-0-add-nx-packages/update-16-0-0-add-nx-packages",
+      "package": "@nx/eslint-plugin",
+      "name": "update-16-0-0-add-nx-packages"
+    },
+    {
+      "cli": "nx",
+      "version": "16.0.0-beta.1",
+      "description": "Replace @nx/react with @nx/react",
+      "implementation": "./src/migrations/update-16-0-0-add-nx-packages/update-16-0-0-add-nx-packages",
+      "package": "@nx/react",
+      "name": "update-16-0-0-add-nx-packages"
+    },
+    {
+      "cli": "nx",
+      "version": "16.2.0-beta.0",
+      "description": "Remove react-test-renderer from package.json",
+      "implementation": "./src/migrations/update-16-2-0-remove-package/update-16-2-0-remove-package",
+      "package": "@nx/react",
+      "name": "update-16-2-0-remove-package"
+    },
+    {
+      "cli": "nx",
+      "version": "16.3.0-beta.2",
+      "description": "Remove @types/react-router-dom from package.json",
+      "implementation": "./src/migrations/update-16-3-0/remove-types-react-router-dom-package",
+      "package": "@nx/react",
+      "name": "remove-types-react-router-dom"
+    },
+    {
+      "cli": "nx",
+      "version": "16.0.0-beta.1",
+      "description": "Replace @nx/detox with @nx/detox",
+      "implementation": "./src/migrations/update-16-0-0-add-nx-packages/update-16-0-0-add-nx-packages",
+      "package": "@nx/detox",
+      "name": "update-16-0-0-add-nx-packages"
+    },
+    {
+      "cli": "nx",
+      "version": "16.0.0-beta.3",
+      "description": "Update .detoxrc.json and jest.config.json for detox 20",
+      "implementation": "./src/migrations/update-16-0-0/update-detoxrc-json",
+      "package": "@nx/detox",
+      "name": "update-16-0-0-update-detoxrc"
+    },
+    {
+      "cli": "nx",
+      "version": "16.1.4-beta.0",
+      "description": "Update .detoxrc.json for expo",
+      "implementation": "./src/migrations/update-16-1-4/update-detoxrc-json-expo",
+      "package": "@nx/detox",
+      "name": "update-detoxrc-json-expo-16-1-4"
+    },
+    {
+      "version": "16.0.0-beta.0",
+      "cli": "nx",
+      "description": "Remove deprecated expo targets",
+      "factory": "./src/migrations/update-16-0-0/remove-deprecated-targets",
+      "package": "@nx/expo",
+      "name": "remove-deprecated-expo-targets"
+    },
+    {
+      "cli": "nx",
+      "version": "16.0.0-beta.1",
+      "description": "Replace @nx/expo with @nx/expo",
+      "implementation": "./src/migrations/update-16-0-0-add-nx-packages/update-16-0-0-add-nx-packages",
+      "package": "@nx/expo",
+      "name": "update-16-0-0-add-nx-packages"
+    },
+    {
+      "cli": "nx",
+      "version": "16.1.4-beta.0",
+      "description": "Update package.json eas build lifecycle scripts",
+      "implementation": "./src/migrations/update-16-1-4/update-eas-scripts",
+      "package": "@nx/expo",
+      "name": "update-eas-scripts-16-1-4"
+    },
+    {
+      "version": "16.1.4-beta.0",
+      "cli": "nx",
+      "description": "Add app.json for detox",
+      "factory": "./src/migrations/update-16-1-4/add-detox-app-json",
+      "package": "@nx/expo",
+      "name": "add-detox-app-json-16-1-4"
     }
   ]
 }
