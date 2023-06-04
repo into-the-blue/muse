@@ -151,6 +151,7 @@ importers:
       '@testing-library/jest-native': '*'
       '@testing-library/react-native': '*'
       expo: 48.0.19
+      expo-file-system: ^15.2.2
       expo-splash-screen: 0.18.2
       expo-status-bar: ~1.4.4
       react-native: 0.71.8
@@ -171,6 +172,7 @@ importers:
       '@testing-library/jest-native': 5.4.2_react-native@0.71.8
       '@testing-library/react-native': 12.1.2_react-native@0.71.8
       expo: 48.0.19
+      expo-file-system: 15.2.2_expo@48.0.19
       expo-splash-screen: 0.18.2_expo@48.0.19
       expo-status-bar: 1.4.4
       react-native: 0.71.8

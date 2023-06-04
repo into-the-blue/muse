@@ -403,7 +403,7 @@ DEPENDENCIES:
   - "EXConstants (from `../../../node_modules/.pnpm/expo-constants@14.2.1_expo@48.0.19/node_modules/expo-constants/ios`)"
   - "EXFileSystem (from `../../../node_modules/.pnpm/expo-file-system@15.2.2_expo@48.0.19/node_modules/expo-file-system/ios`)"
   - "EXFont (from `../../../node_modules/.pnpm/expo-font@11.1.1_expo@48.0.19/node_modules/expo-font/ios`)"
-  - "Expo (from `../../../node_modules/.pnpm/expo@48.0.19/node_modules/expo`)"
+  - "Expo (from `../../../node_modules/.pnpm/expo@48.0.19_@babel+core@7.21.4/node_modules/expo`)"
   - "ExpoKeepAwake (from `../../../node_modules/.pnpm/expo-keep-awake@12.0.1_expo@48.0.19/node_modules/expo-keep-awake/ios`)"
   - "ExpoModulesCore (from `../../../node_modules/.pnpm/expo-modules-core@1.2.7/node_modules/expo-modules-core`)"
   - "EXSplashScreen (from `../../../node_modules/.pnpm/expo-splash-screen@0.18.2_expo@48.0.19/node_modules/expo-splash-screen/ios`)"
@@ -470,7 +470,7 @@ EXTERNAL SOURCES:
   EXFont:
     :path: "../../../node_modules/.pnpm/expo-font@11.1.1_expo@48.0.19/node_modules/expo-font/ios"
   Expo:
-    :path: "../../../node_modules/.pnpm/expo@48.0.19/node_modules/expo"
+    :path: "../../../node_modules/.pnpm/expo@48.0.19_@babel+core@7.21.4/node_modules/expo"
   ExpoKeepAwake:
     :path: "../../../node_modules/.pnpm/expo-keep-awake@12.0.1_expo@48.0.19/node_modules/expo-keep-awake/ios"
   ExpoModulesCore:
