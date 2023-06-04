@@ -6,6 +6,7 @@
     "@react-native-async-storage/async-storage": "^1.18.1",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
+    "@realm/react": "^0.4.3",
     "@sentry/react-native": "^5.1.1",
     "@testing-library/jest-native": "*",
     "@testing-library/react-native": "*",
@@ -19,6 +20,7 @@
     "react-native-svg": "13.4.0",
     "react-native-svg-transformer": "1.0.0",
     "react-native-web": "~0.18.12",
+    "realm": "^11.9.0",
     "twrnc": "^3.6.1"
   },
   "scripts": {
