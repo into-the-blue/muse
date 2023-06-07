@@ -1,5 +1,5 @@
 import { ReplaySubject, ObservableInput } from 'rxjs';
-import React from 'react';
+
 export type TFutureTask<P = unknown> = {
   params: P;
   subject: ReplaySubject<P>;
@@ -15,12 +15,6 @@ export type TXenoMessage<
   payload: Payload;
   response?: Res;
 };
-
-export type IReactComponent<P = any> =
-  | React.ClassicComponentClass<P>
-  | React.ComponentClass<P>
-  | React.FunctionComponent<P>
-  | React.ForwardRefExoticComponent<P>;
 
 export interface IXenoInjectedProps<Events extends TXenoMessage> {
   on: XenoListener<Events>;
