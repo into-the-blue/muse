@@ -1,5 +1,5 @@
 import { XenoContextType } from './context';
-import { createContext, useContext } from 'react';
+import { createContext } from 'react';
 import { TXenoMessage } from './type';
 import { Xeno } from './xeno';
 import {
