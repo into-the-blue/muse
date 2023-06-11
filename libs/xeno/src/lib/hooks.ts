@@ -27,7 +27,7 @@ export const createXenoListenerHook = <T extends TXenoMessage>(
       return () => {
         unlisten();
       };
-    }, [_listener, xeno]);
+    }, [_listener, xeno, event]);
   };
   return useXenoListener;
 };
@@ -37,7 +37,7 @@ export const createXenoTriggerHook = <T extends TXenoMessage>(
 ) => {
   const useXenoTrigger = () => {
     const { xeno } = useContext(xenoContext);
-    const trigger: XenoEmitter<T, Observable<any>> = (name, params) => {
+    const trigger: XenoEmitter<T, Observable<unknown>> = (name, params) => {
       const sub = xeno.trigger(name, params);
       return sub;
     };
