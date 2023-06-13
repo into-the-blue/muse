@@ -1,7 +1,18 @@
 import { XenoContextType } from './context';
 import { TXenoMessage, HandlerFunction, XenoEmitter } from './type';
-import { Context, useContext, useEffect, useMemo } from 'react';
+import { Context, useContext, useEffect, useMemo, useRef } from 'react';
 import { Observable } from 'rxjs';
+
+const useIsUnmount = () => {
+  const isUnmount = useRef(false);
+  useEffect(() => {
+    isUnmount.current = false;
+    return () => {
+      isUnmount.current = true;
+    };
+  }, []);
+  return isUnmount;
+};
 
 export const createXenoHook = <T extends TXenoMessage>(
   xenoContext: Context<XenoContextType<T>>
@@ -37,7 +48,12 @@ export const createXenoTriggerHook = <T extends TXenoMessage>(
 ) => {
   const useXenoTrigger = () => {
     const { xeno } = useContext(xenoContext);
+    const isUnmount = useIsUnmount();
     const trigger: XenoEmitter<T, Observable<unknown>> = (name, params) => {
+      console.log('unmount value', isUnmount.current);
+      if (isUnmount.current) {
+        throw new Error('Cannot trigger event when component is unmounted');
+      }
       const sub = xeno.trigger(name, params);
       return sub;
     };

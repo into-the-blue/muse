@@ -47,25 +47,56 @@ test('useXeno', () => {
   expect(res.result.current).toEqual(xeno);
 });
 
-test('useXenoListener', () => {
-  const callback = jest.fn();
+describe('useXenoListener', () => {
+  test('listener should work', () => {
+    const callback = jest.fn();
 
-  renderHook(() => useXenoListener('message1', callback), {
-    wrapper,
+    renderHook(() => useXenoListener('message1', callback), {
+      wrapper,
+    });
+    xeno.trigger('message1', undefined);
+    expect(callback).toBeCalledTimes(1);
   });
-  xeno.trigger('message1', undefined);
-  expect(callback).toBeCalledTimes(1);
+
+  test('unmount should unlisten', () => {
+    const callback = jest.fn();
+    const { unmount } = renderHook(
+      () => useXenoListener('message1', callback),
+      { wrapper }
+    );
+    xeno.trigger('message1', undefined);
+    unmount();
+    xeno.trigger('message1', undefined);
+    expect(callback).toBeCalledTimes(1);
+  });
 });
 
-test('useXenoTrigger', () => {
-  const callback = jest.fn();
+describe('useXenoTrigger', () => {
+  test('should work', () => {
+    const callback = jest.fn();
 
-  renderHook(() => useXenoListener('message1', callback), {
-    wrapper,
+    renderHook(() => useXenoListener('message1', callback), {
+      wrapper,
+    });
+    const res = renderHook(() => useXenoTrigger(), {
+      wrapper,
+    });
+    res.result.current('message1', undefined);
+    expect(callback).toBeCalledTimes(1);
   });
-  const res = renderHook(() => useXenoTrigger(), {
-    wrapper,
+
+  test('unmount', () => {
+    const callback = jest.fn();
+
+    renderHook(() => useXenoListener('message1', callback), {
+      wrapper,
+    });
+    const res = renderHook(() => useXenoTrigger(), {
+      wrapper,
+    });
+    res.result.current('message1', undefined);
+    res.unmount();
+    expect(callback).toBeCalledTimes(1);
+    expect(() => res.result.current('message1', undefined)).toThrowError();
   });
-  res.result.current('message1', undefined);
-  expect(callback).toBeCalledTimes(1);
 });
