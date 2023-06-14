@@ -1,8 +1,12 @@
 import { constrcutXeno } from '../lib/construtor';
 import { TXenoMessage } from '../lib/type';
-import { useState } from 'react';
-import { render, renderHook } from '@testing-library/react';
+import { renderHook } from '@testing-library/react';
+jest.useFakeTimers();
 
+const sleep = (time: number) =>
+  new Promise((resolve) => {
+    setTimeout(resolve, time);
+  });
 type Message1 = TXenoMessage<'message1', undefined>;
 
 type Message2 = TXenoMessage<
@@ -98,5 +102,38 @@ describe('useXenoTrigger', () => {
     res.unmount();
     expect(callback).toBeCalledTimes(1);
     expect(() => res.result.current('message1', undefined)).toThrowError();
+  });
+
+  test('unmount should close subscription', async () => {
+    const mockCallback = jest.fn().mockResolvedValue('1');
+    renderHook(
+      () =>
+        useXenoListener('message1', async () => {
+          await sleep(100);
+          mockCallback();
+          return '1';
+        }),
+      {
+        wrapper,
+      }
+    );
+    const res = renderHook(() => useXenoTrigger(), {
+      wrapper,
+    });
+
+    const mockNext = jest.fn();
+    const mockComplete = jest.fn();
+    const sub = res.result.current('message1', undefined).subscribe({
+      next: mockNext,
+      complete: mockComplete,
+    });
+    res.unmount();
+    console.log('sub closed', sub.closed);
+    jest.runAllTimersAsync();
+    await sleep(100);
+    jest.advanceTimersByTimeAsync(100);
+    expect(mockNext).toBeCalledTimes(0);
+    expect(mockComplete).toBeCalledTimes(0);
+    expect(mockCallback).toBeCalledTimes(1);
   });
 });
