@@ -50,12 +50,11 @@ export const createXenoTriggerHook = <T extends TXenoMessage>(
     const { xeno } = useContext(xenoContext);
     const isUnmount = useIsUnmount();
     const trigger: XenoEmitter<T, Observable<unknown>> = (name, params) => {
-      console.log('unmount value', isUnmount.current);
       if (isUnmount.current) {
         throw new Error('Cannot trigger event when component is unmounted');
       }
-      const sub = xeno.trigger(name, params);
-      return sub;
+      const obsr = xeno.trigger(name, params);
+      return obsr;
     };
     return trigger;
   };
