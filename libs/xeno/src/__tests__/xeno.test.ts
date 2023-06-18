@@ -51,7 +51,7 @@ test('Should receive response from listener', (done) => {
   const unlisten = xeno.on('message3', ({ message3 }) => {
     return 'message3' + message3;
   });
-  xeno.trigger('message3', { message3: 'xxx' }).subscribe((res) => {
+  xeno.trigger('message3', { message3: 'xxx' })[0].subscribe((res) => {
     expect(res).toBe('message3xxx');
     done();
     unlisten();

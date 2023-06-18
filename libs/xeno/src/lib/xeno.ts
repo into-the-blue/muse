@@ -1,4 +1,4 @@
-import { ReplaySubject, of, from, Observable } from 'rxjs';
+import { ReplaySubject, of, from, Observable, Subject } from 'rxjs';
 import { catchError, mergeMap, switchMap, take } from 'rxjs/operators';
 import {
   TFutureTask,
@@ -134,14 +134,17 @@ export class Xeno<Messages extends TXenoMessage> {
    * @memberof Xeno3
    * implementation 2: each time create a new subject
    */
-  trigger: XenoEmitter<Messages, Observable<any>> = (name, params) => {
+  trigger: XenoEmitter<Messages, [Observable<any>, Subject<any>]> = (
+    name,
+    params
+  ) => {
     const handlerIns = this.events.get(name);
     const sub = new ReplaySubject<any>();
     if (!handlerIns || handlerIns.numOfListeners === 0) {
       log('SENDER', name, 'FUTURE TASK');
       // no handlers
       this._addFutureEvent(sub, name, params);
-      return sub.pipe(take(1));
+      return [sub.pipe(take(1)), sub];
     }
     const handlers = handlerIns.getHandlers();
     // exist handlers
@@ -162,6 +165,6 @@ export class Xeno<Messages extends TXenoMessage> {
         },
       });
     log('SENDER', name, 'LISTENERS TRIGGERED', handlers.length);
-    return sub.pipe(take(handlers.length));
+    return [sub.pipe(take(handlers.length)), sub];
   };
 }

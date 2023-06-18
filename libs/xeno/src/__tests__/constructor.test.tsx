@@ -110,8 +110,7 @@ describe('useXenoTrigger', () => {
       () =>
         useXenoListener('message1', async () => {
           await sleep(100);
-          mockCallback();
-          return '1';
+          return mockCallback();
         }),
       {
         wrapper,
@@ -128,12 +127,12 @@ describe('useXenoTrigger', () => {
       complete: mockComplete,
     });
     res.unmount();
-    console.log('sub closed', sub.closed);
     jest.runAllTimersAsync();
     await sleep(100);
     jest.advanceTimersByTimeAsync(100);
     expect(mockNext).toBeCalledTimes(0);
-    expect(mockComplete).toBeCalledTimes(0);
+    expect(mockComplete).toBeCalledTimes(1);
     expect(mockCallback).toBeCalledTimes(1);
+    expect(sub.closed).toBeTruthy();
   });
 });
