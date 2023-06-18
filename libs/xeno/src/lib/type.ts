@@ -33,7 +33,8 @@ export type HandlerFunction<T extends TXenoMessage, EventName = T['name']> = (
 ) => ObservableInput<unknown> | undefined | void;
 
 export type XenoEmitter<T extends TXenoMessage, Return = unknown> = <
-  E extends T['name']
+  E extends T['name'],
+  Response = Extract<T, { name: E }>['response']
 >(
   name: E,
   params: Extract<T, { name: E }>['payload']
