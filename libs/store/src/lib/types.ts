@@ -1,3 +1,4 @@
+import { Container } from 'inversify';
 export class BaseController {
   componentDidMount() {
     //
@@ -6,3 +7,5 @@ export class BaseController {
     //
   }
 }
+
+export type StoreContextType = React.Context<Container>;
