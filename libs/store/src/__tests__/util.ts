@@ -1,5 +1,6 @@
-import { Injectable, Instantiable } from '../lib/store';
 import { makeObservable, observable, action } from 'mobx';
+import { Injectable, Instantiable } from '../lib/defaultContainer';
+
 @Injectable({ singleton: true })
 export class Store1 {
   constructor() {
