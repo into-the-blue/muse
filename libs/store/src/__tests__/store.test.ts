@@ -1,10 +1,5 @@
 import 'reflect-metadata';
-import {
-  resolve,
-  Instantiable,
-  container,
-  unionResolve,
-} from '../lib/store';
+import { resolve, Instantiable, container, unionResolve } from '../lib/store';
 import { Service1, Service2, Store2 } from './util';
 
 test('Resolve should work', () => {
