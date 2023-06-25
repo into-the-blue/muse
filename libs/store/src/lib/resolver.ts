@@ -2,6 +2,7 @@ import { ClassLike } from '@muse/types';
 import { Container } from 'inversify';
 import { getClassSymbol } from './decorators';
 import { SINGLETON_SYMBOL } from './constants';
+import { Resolver, UnionResolver } from './types';
 
 const isClass = (target: new (...args: unknown[]) => unknown) => {
   return (
@@ -10,10 +11,8 @@ const isClass = (target: new (...args: unknown[]) => unknown) => {
   );
 };
 
-type Resolver = <T>(target: ClassLike<T>, sharedContaienr?: Container) => T;
-
 export const createResolver = (container: Container) => {
-  const resolve: Resolver = <T>(
+  const resolver: Resolver = <T>(
     target: ClassLike<T>,
     sharedContaienr?: Container
   ): T => {
@@ -38,30 +37,17 @@ export const createResolver = (container: Container) => {
     }
 
     const args: unknown[] = (paramTypes as any[]).map((param) =>
-      resolve(param, sharedContaienr)
+      resolver(param, sharedContaienr)
     );
     return new target(...args);
   };
-  return resolve;
+  return resolver;
 };
 
-interface UnionResolver {
-  <T extends [...ClassLike<any>[]]>(...targets: [...T]): ForArray<T>;
-  (...targets: ClassLike<any>[]): any[];
-}
-
-export const createUnionResolve = (resolve: Resolver) => {
-  const unionResolve: UnionResolver = (...targets: ClassLike<any>[]) => {
+export const createUnionResolver = (resolve: Resolver) => {
+  const unionResolver: UnionResolver = (...targets: ClassLike<any>[]) => {
     const sharedContainer = new Container();
     return targets.map((target) => resolve(target, sharedContainer));
   };
-  return unionResolve;
+  return unionResolver;
 };
-
-type ForArray<T> = T extends unknown[]
-  ? T extends [infer Item, ...infer Rest]
-    ? [ExtractClass<Item>, ...ForArray<Rest>]
-    : T
-  : T;
-
-type ExtractClass<T> = T extends new (...args: any[]) => infer R ? R : never;
