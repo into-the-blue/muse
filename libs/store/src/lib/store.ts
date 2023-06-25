@@ -84,29 +84,6 @@ export const resolve = <T>(
   );
   return new target(...args);
 };
-function unionResolve<T1>(arg1: ClassLike<T1>): [T1];
-function unionResolve<T1, T2>(
-  arg1: ClassLike<T1>,
-  arg2: ClassLike<T2>
-): [T1, T2];
-function unionResolve<T1, T2, T3>(
-  arg1: ClassLike<T1>,
-  arg2: ClassLike<T2>,
-  arg3: ClassLike<T3>
-): [T1, T2, T3];
-function unionResolve<T1, T2, T3, T4>(
-  arg1: ClassLike<T1>,
-  arg2: ClassLike<T2>,
-  arg3: ClassLike<T3>,
-  arg4: ClassLike<T4>
-): [T1, T2, T3, T4];
-function unionResolve<T1, T2, T3, T4, T5>(
-  arg1: ClassLike<T1>,
-  arg2: ClassLike<T2>,
-  arg3: ClassLike<T3>,
-  arg4: ClassLike<T4>,
-  arg5: ClassLike<T5>
-): [T1, T2, T3, T4, T5];
 function unionResolve<T extends [...ClassLike<any>[]]>(
   ...targets: [...T]
 ): ForArray<T>;
