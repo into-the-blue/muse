@@ -1,9 +1,9 @@
 import { BaseController } from './types';
-import { unionResolve } from './store';
 import { ClassLike } from '@muse/types';
 import { observer } from 'mobx-react-lite';
 import React, { useEffect } from 'react';
 import { zip } from 'lodash';
+import { unionResolve } from './defaultContainer';
 
 type Enhancer<IncluedProps> = <
   P extends IncluedProps & JSX.IntrinsicAttributes
