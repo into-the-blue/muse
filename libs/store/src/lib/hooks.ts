@@ -1,4 +1,4 @@
-import { useContext, useMemo } from 'react';
+import { useContext, useMemo, useRef } from 'react';
 import { StoreContextType, UnionResolver } from './types';
 import { ClassLike } from '@muse/types';
 
@@ -17,9 +17,10 @@ export const createUseSingletonHook = (context: StoreContextType) => {
 export const createUseUnionResolveHook = (context: StoreContextType) => {
   const useUnionResolve: UnionResolver = (...classes: any[]) => {
     const { unionResolver } = useContext(context);
+    const classRef = useRef(classes);
     const results = useMemo(() => {
-      return unionResolver(...classes);
-    }, [unionResolver, classes]);
+      return unionResolver(...classRef.current);
+    }, [unionResolver]);
     return results;
   };
   return useUnionResolve;
