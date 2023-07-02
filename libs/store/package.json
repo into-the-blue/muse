@@ -11,9 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "mobx": "*",
-    "mobx-react-lite": "*"
-  },
-  "devDependencies": {
+    "mobx-react-lite": "*",
     "inversify": "^6.0.1",
     "reflect-metadata": "^0.1.13"
   }
