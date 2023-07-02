@@ -3,12 +3,17 @@
 /** @type {import("syncpack").RcFile} */
 const config = {
   dependencyTypes: ['dev', 'prod', 'peer'],
+  source: [
+    'packages/*/package.json',
+    'apps/*/package.json',
+    'libs/*/package.json',
+  ],
   versionGroups: [
-    {
-      packages: ['packages/*', 'apps/*', 'libs/*'],
-      dependencies: ['**'],
-      snapTo: ['muse-monorepo'],
-    },
+    // {
+    //   packages: ['**'],
+    //   dependencies: ['**'],
+    //   snapTo: ['muse'],
+    // },
   ],
 };
 

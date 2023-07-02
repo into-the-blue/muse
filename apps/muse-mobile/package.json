@@ -1,5 +1,5 @@
 {
-  "name": "muse-mobile",
+  "name": "@muse/muse-mobile",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
