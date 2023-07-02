@@ -2,9 +2,10 @@
 
 /** @type {import("syncpack").RcFile} */
 const config = {
+  dependencyTypes: ['dev', 'prod', 'peer'],
   versionGroups: [
     {
-      packages: ['package.json', 'packages/*', 'apps/*', 'libs/*'],
+      packages: ['packages/*', 'apps/*', 'libs/*'],
       dependencies: ['**'],
       snapTo: ['muse-monorepo'],
     },
