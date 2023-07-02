@@ -20,8 +20,7 @@
       "executor": "@nx/expo:run",
       "options": {
         "platform": "ios",
-        "install": false,
-        "device": "iPhone 14"
+        "install": false
       }
     },
     "run-android": {

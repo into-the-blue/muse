@@ -406,7 +406,7 @@ DEPENDENCIES:
   - "Expo (from `../../../node_modules/.pnpm/expo@48.0.19_@babel+core@7.21.4/node_modules/expo`)"
   - "ExpoKeepAwake (from `../../../node_modules/.pnpm/expo-keep-awake@12.0.1_expo@48.0.19/node_modules/expo-keep-awake/ios`)"
   - "ExpoModulesCore (from `../../../node_modules/.pnpm/expo-modules-core@1.2.7/node_modules/expo-modules-core`)"
-  - "EXSplashScreen (from `../../../node_modules/.pnpm/expo-splash-screen@0.18.2_expo@48.0.19/node_modules/expo-splash-screen/ios`)"
+  - "EXSplashScreen (from `../../../node_modules/.pnpm/expo-splash-screen@0.18.2_expo-modules-autolinking@1.2.0_expo@48.0.19/node_modules/expo-splash-screen/ios`)"
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
@@ -476,7 +476,7 @@ EXTERNAL SOURCES:
   ExpoModulesCore:
     :path: "../../../node_modules/.pnpm/expo-modules-core@1.2.7/node_modules/expo-modules-core"
   EXSplashScreen:
-    :path: "../../../node_modules/.pnpm/expo-splash-screen@0.18.2_expo@48.0.19/node_modules/expo-splash-screen/ios"
+    :path: "../../../node_modules/.pnpm/expo-splash-screen@0.18.2_expo-modules-autolinking@1.2.0_expo@48.0.19/node_modules/expo-splash-screen/ios"
   FBLazyVector:
     :path: "../node_modules/react-native/Libraries/FBLazyVector"
   FBReactNativeSpec:
