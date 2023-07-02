@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "nx": "nx"
+    "nx": "nx",
+    "deps:sync": "syncpack fix-mismatches",
+    "deps:list-mismatches": "syncpack list-mismatches"
   },
   "private": true,
   "devDependencies": {
@@ -101,23 +103,11 @@
   },
   "pnpm": {
     "overrides": {
-      "react": "$react",
-      "react-dom": "$react-dom",
-      "react-native": "$react-native",
-      "expo": "$expo",
-      "expo-splash-screen": "$expo-splash-screen",
-      "expo-status-bar": "$expo-status-bar",
       "lodash": "$lodash",
-      "mobx": "$mobx",
-      "mobx-react-lite": "$mobx-react-lite",
-      "styled-components": "$styled-components",
       "rxjs": "$rxjs",
-      "jest": "$jest",
-      "@testing-library/jest-native": "$@testing-library/jest-native",
-      "@testing-library/react-native": "$@testing-library/react-native",
       "ts-jest": "$ts-jest",
-      "ts-node": "$ts-node",
-      "typescript": "$typescript"
+      "typescript": "$typescript",
+      "ts-node": "$ts-node"
     }
   }
 }
