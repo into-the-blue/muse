@@ -11,7 +11,7 @@ const config = {
   ],
   semverGroups: [
     {
-      range: '~',
+      range: '',
       dependencies: ['**'],
       packages: ['muse'],
     },

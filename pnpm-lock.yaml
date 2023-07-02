@@ -5,23 +5,11 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  react: 18.2.0
-  react-dom: 18.2.0
-  react-native: 0.71.8
-  expo: 48.0.19
-  expo-splash-screen: 0.18.2
-  expo-status-bar: ~1.4.4
   lodash: ^4.17.21
-  mobx: ^6.8.0
-  mobx-react-lite: ^3.4.1
-  styled-components: ^5.3.9
   rxjs: ^7.8.0
-  jest: 29.5.0
-  '@testing-library/jest-native': 5.4.2
-  '@testing-library/react-native': 12.1.2
   ts-jest: 29.1.0
-  ts-node: 10.9.1
   typescript: 5.1.6
+  ts-node: 10.9.1
 
 importers:
 
@@ -30,15 +18,36 @@ importers:
       '@expo/metro-config':
         specifier: 0.7.1
         version: 0.7.1
+      '@react-native-async-storage/async-storage':
+        specifier: ^1.18.1
+        version: 1.18.1(react-native@0.71.8)
+      '@react-navigation/native':
+        specifier: ^6.1.6
+        version: 6.1.6(react-native@0.71.8)(react@18.2.0)
+      '@react-navigation/native-stack':
+        specifier: ^6.9.12
+        version: 6.9.12(@react-navigation/native@6.1.6)(react-native-safe-area-context@4.5.0)(react-native-screens@3.20.0)(react-native@0.71.8)(react@18.2.0)
+      '@realm/react':
+        specifier: ^0.4.3
+        version: 0.4.3(@babel/core@7.21.4)(@babel/preset-env@7.21.4)(react@18.2.0)(realm@11.9.0)
+      '@sentry/react-native':
+        specifier: ^5.1.1
+        version: 5.1.1(react-native@0.71.8)(react@18.2.0)
       expo:
         specifier: 48.0.19
         version: 48.0.19(@babel/core@7.21.4)
+      expo-file-system:
+        specifier: ^15.2.2
+        version: 15.2.2(expo@48.0.19)
       expo-splash-screen:
         specifier: 0.18.2
         version: 0.18.2(expo-modules-autolinking@1.2.0)(expo@48.0.19)
       expo-status-bar:
         specifier: ~1.4.4
         version: 1.4.4
+      inversify:
+        specifier: ^6.0.1
+        version: 6.0.1
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -57,9 +66,36 @@ importers:
       react-native:
         specifier: 0.71.8
         version: 0.71.8(@babel/core@7.21.4)(@babel/preset-env@7.21.4)(react@18.2.0)
+      react-native-config:
+        specifier: ^1.5.1
+        version: 1.5.1
+      react-native-safe-area-context:
+        specifier: ^4.5.0
+        version: 4.5.0(react-native@0.71.8)(react@18.2.0)
+      react-native-screens:
+        specifier: ^3.20.0
+        version: 3.20.0(react-native@0.71.8)(react@18.2.0)
+      react-native-svg:
+        specifier: 13.4.0
+        version: 13.4.0(react-native@0.71.8)(react@18.2.0)
+      react-native-svg-transformer:
+        specifier: 1.0.0
+        version: 1.0.0(react-native-svg@13.4.0)(react-native@0.71.8)
+      react-native-web:
+        specifier: ~0.18.12
+        version: 0.18.12(react-dom@18.2.0)(react@18.2.0)
+      realm:
+        specifier: ^11.9.0
+        version: 11.9.0(react-native@0.71.8)
+      reflect-metadata:
+        specifier: ^0.1.13
+        version: 0.1.13
       styled-components:
         specifier: ^5.3.9
         version: 5.3.9(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+      twrnc:
+        specifier: ^3.6.1
+        version: 3.6.1(postcss@8.4.24)(react-native@0.71.8)(ts-node@10.9.1)
     devDependencies:
       '@babel/core':
         specifier: ^7.20.0
@@ -364,7 +400,7 @@ importers:
         specifier: ^8.34.0
         version: 8.42.0
       jest:
-        specifier: 29.5.0
+        specifier: ^29.4.3
         version: 29.5.0(@types/node@18.15.11)(ts-node@10.9.1)
       ts-jest:
         specifier: 29.1.0
@@ -2007,7 +2043,7 @@ packages:
       getenv: 1.0.0
       glob: 7.1.6
       resolve-from: 5.0.0
-      semver: 7.3.8
+      semver: 7.5.3
       slash: 3.0.0
       xcode: 3.0.1
       xml2js: 0.4.23
@@ -2919,7 +2955,7 @@ packages:
     dependencies:
       '@jridgewell/set-array': 1.1.2
       '@jridgewell/sourcemap-codec': 1.4.14
-      '@jridgewell/trace-mapping': 0.3.17
+      '@jridgewell/trace-mapping': 0.3.18
 
   /@jridgewell/resolve-uri@3.1.0:
     resolution: {integrity: sha512-F2msla3tad+Mfht5cJq7LSXcdudKTWCVYUgw6pLFOOHSTtZlj6SWNYAp+AhuqLmWdBO2X5hPrLcu8cVP8fy28w==}
@@ -5104,7 +5140,7 @@ packages:
       debug: 4.3.4(supports-color@5.5.0)
       globby: 11.1.0
       is-glob: 4.0.3
-      semver: 7.3.8
+      semver: 7.5.3
       tsutils: 3.21.0(typescript@5.1.6)
       typescript: 5.1.6
     transitivePeerDependencies:
@@ -5125,7 +5161,7 @@ packages:
       '@typescript-eslint/typescript-estree': 5.59.8(typescript@5.1.6)
       eslint: 8.15.0
       eslint-scope: 5.1.1
-      semver: 7.3.8
+      semver: 7.5.3
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -5145,7 +5181,7 @@ packages:
       '@typescript-eslint/typescript-estree': 5.59.8(typescript@5.1.6)
       eslint: 8.42.0
       eslint-scope: 5.1.1
-      semver: 7.3.8
+      semver: 7.5.3
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -15831,6 +15867,7 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
+    dev: true
 
   /semver@7.5.2:
     resolution: {integrity: sha512-SoftuTROv/cRjCze/scjGyiDtcUyxw1rgYQSZY7XTmtR5hX+dm76iDbTH8TkLPHCQmlbQVSSbNZCPM2hb0knnQ==}
@@ -16832,7 +16869,7 @@ packages:
       uglify-js:
         optional: true
     dependencies:
-      '@jridgewell/trace-mapping': 0.3.17
+      '@jridgewell/trace-mapping': 0.3.18
       jest-worker: 27.5.1
       schema-utils: 3.1.2
       serialize-javascript: 6.0.1
@@ -16856,7 +16893,7 @@ packages:
       uglify-js:
         optional: true
     dependencies:
-      '@jridgewell/trace-mapping': 0.3.17
+      '@jridgewell/trace-mapping': 0.3.18
       jest-worker: 27.5.1
       schema-utils: 3.1.2
       serialize-javascript: 6.0.1
@@ -17551,7 +17588,7 @@ packages:
     resolution: {integrity: sha512-6z3GW9x8G1gd+JIIgQQQxXuiJtCXeAjp6RaPEPLv62mH3iPHPxV6W3robxtCzNErRo6ZwTmzWhsbNvjyEBKzKA==}
     engines: {node: '>=10.12.0'}
     dependencies:
-      '@jridgewell/trace-mapping': 0.3.17
+      '@jridgewell/trace-mapping': 0.3.18
       '@types/istanbul-lib-coverage': 2.0.4
       convert-source-map: 1.9.0
 
