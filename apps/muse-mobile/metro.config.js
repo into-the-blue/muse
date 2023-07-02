@@ -1,6 +1,6 @@
 const { withNxMetro } = require('@nx/expo');
 const { getDefaultConfig } = require('@expo/metro-config');
-const { getResolveRequest } = require('./metroResolver/metro-resolver');
+
 const defaultConfig = getDefaultConfig(__dirname);
 
 module.exports = (async () => {
@@ -11,7 +11,7 @@ module.exports = (async () => {
     (ext) => ext !== 'svg'
   );
   defaultConfig.resolver.sourceExts.push('svg');
-  const config = withNxMetro(defaultConfig, {
+  return withNxMetro(defaultConfig, {
     // Change this to true to see debugging info.
     // Useful if you have issues resolving modules
     debug: false,
@@ -22,7 +22,4 @@ module.exports = (async () => {
     // Specify any additional (to projectRoot) watch folders, this is used to know which files to watch
     watchFolders: [],
   });
-  const extensions = ['', 'ts', 'tsx', 'js', 'jsx', 'json'];
-  config.resolver.resolveRequest = getResolveRequest(extensions);
-  return config;
 })();
