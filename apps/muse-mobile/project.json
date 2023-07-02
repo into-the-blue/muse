@@ -20,7 +20,9 @@
       "executor": "@nx/expo:run",
       "options": {
         "platform": "ios",
-        "install": false
+        "install": false,
+        "clean": false,
+        "buildCache": true
       }
     },
     "run-android": {
