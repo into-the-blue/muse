@@ -95,7 +95,9 @@
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
     "@realm/react": "^0.4.3",
-    "@sentry/react-native": "^5.1.1"
+    "@sentry/react-native": "^5.1.1",
+    "inversify": "^6.0.1",
+    "reflect-metadata": "^0.1.13"
   },
   "pnpm": {
     "overrides": {
