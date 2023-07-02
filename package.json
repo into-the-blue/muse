@@ -97,8 +97,11 @@
       "styled-components": "$styled-components",
       "rxjs": "$rxjs",
       "jest": "$jest",
-      "testing-library/jest-native": "$testing-library/jest-native",
-      "@testing-library/react-native": "$testing-library/react-native"
+      "@testing-library/jest-native": "$@testing-library/jest-native",
+      "@testing-library/react-native": "$@testing-library/react-native",
+      "ts-jest": "$ts-jest",
+      "ts-node": "$ts-node",
+      "typescript": "$typescript"
     }
   }
 }
