@@ -10,9 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mobx": "*",
-    "mobx-react-lite": "*",
-    "inversify": "*",
-    "reflect-metadata": "*"
+    "mobx": "^6.8.0",
+    "mobx-react-lite": "^3.4.1",
+    "inversify": "^6.0.1",
+    "reflect-metadata": "^0.1.13"
   }
 }
