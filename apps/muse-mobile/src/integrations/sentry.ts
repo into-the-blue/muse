@@ -1,5 +1,6 @@
 import * as Sentry from '@sentry/react-native';
 import Config from '../configs/sentry';
+import { Enhancer } from '@muse/types';
 
 Sentry.init({
   dsn: Config.dsn,
@@ -8,6 +9,6 @@ Sentry.init({
   tracesSampleRate: Config.tracesSampleRate,
 });
 
-export const setupSentry = <P>(app: React.ComponentType<P>) => {
+export const sentryEnhancer: Enhancer = (app) => {
   return Sentry.wrap(app);
 };
