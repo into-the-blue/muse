@@ -15,7 +15,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "rxjs":["node_modules/rxjs"],
       "@muse/srs": ["libs/srs/fsrs/index.ts"],
       "@muse/store": ["libs/store/src/index.ts"],
       "@muse/types": ["libs/types/src/index.ts"],
