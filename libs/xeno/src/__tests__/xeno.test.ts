@@ -1,5 +1,5 @@
 import { Xeno } from '../lib/xeno';
-import { TXenoMessage } from '../lib';
+import { TXenoMessage } from '../lib/type';
 
 const xeno = new Xeno<Messages>();
 

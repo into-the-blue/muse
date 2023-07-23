@@ -9,7 +9,8 @@
     "resolveJsonModule": true,
     "strict": true,
     "composite": true,
-    "declaration": true
+    "declaration": true,
+    "preserveSymlinks": true
   },
   "files": ["../../node_modules/@nx/expo/typings/svg.d.ts"],
   "include": [],
