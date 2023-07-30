@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
-import { Xeno } from './xeno';
-import { TXenoMessage, XenoEmitter, XenoListener } from './type';
+import type { Xeno } from './xeno';
+import type { TXenoMessage, XenoEmitter, XenoListener } from './type';
 import React from 'react';
-import { Observable, Subject } from 'rxjs';
+import type { Observable, Subject } from 'rxjs';
 export const connectXeno =
   <T extends TXenoMessage>(xeno: Xeno<T>) =>
   <
