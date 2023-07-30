@@ -1,5 +1,5 @@
-import { Container } from 'inversify';
-import { ClassLike } from '@muse/types';
+import type { Container } from 'inversify';
+import type { ClassLike } from '@muse/types';
 export class BaseController {
   componentDidMount() {
     //

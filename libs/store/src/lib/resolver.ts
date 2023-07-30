@@ -1,8 +1,8 @@
-import { ClassLike } from '@muse/types';
+import type { ClassLike } from '@muse/types';
 import { Container } from 'inversify';
 import { getClassSymbol } from './decorators';
 import { SINGLETON_SYMBOL } from './constants';
-import { Resolver, UnionResolver } from './types';
+import type { Resolver, UnionResolver } from './types';
 
 const isClass = (target: new (...args: unknown[]) => unknown) => {
   return (

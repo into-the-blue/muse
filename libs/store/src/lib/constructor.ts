@@ -1,8 +1,8 @@
-import { Container } from 'inversify';
+import type { Container } from 'inversify';
 import { createContext } from 'react';
 import { createInjectable, createInstantiable } from './decorators';
 import { createResolver, createUnionResolver } from './resolver';
-import { StoreContextType } from './types';
+import type { StoreContextType } from './types';
 import { createUseSingletonHook, createUseUnionResolveHook } from './hooks';
 
 export const constructStore = (container: Container) => {

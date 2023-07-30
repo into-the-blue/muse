@@ -1,7 +1,8 @@
 import 'reflect-metadata';
-import { InjectableConfig } from './types';
-import { ClassLike } from '@muse/types';
-import { Container, injectable } from 'inversify';
+import type { InjectableConfig } from './types';
+import type { ClassLike } from '@muse/types';
+import type { Container} from 'inversify';
+import { injectable } from 'inversify';
 import {
   USE_SYMBOL_AS_IDENTIFIER,
   CLASS_SYMBOL,

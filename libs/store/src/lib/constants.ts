@@ -1,4 +1,4 @@
-import { InjectableConfig } from './types';
+import type { InjectableConfig } from './types';
 
 export const CLASS_SYMBOL = Symbol('classSymbol');
 export const SINGLETON_SYMBOL = Symbol('isSingleton');
