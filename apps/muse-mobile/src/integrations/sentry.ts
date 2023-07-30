@@ -1,6 +1,6 @@
 import * as Sentry from '@sentry/react-native';
 import Config from '../configs/sentry';
-import { Enhancer } from '@muse/types';
+import type { Enhancer } from '@muse/types';
 
 Sentry.init({
   dsn: Config.dsn,
