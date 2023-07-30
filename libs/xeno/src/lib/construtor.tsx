@@ -7,18 +7,8 @@ import {
   createXenoListenerHook,
   createXenoTriggerHook,
 } from './hooks';
+import { createContextEnhancer } from '@muse/utils';
 
-const createContextEnhancer =
-  <Ctx extends React.Context<V>, V>(context: Ctx, value: V) =>
-  <P extends JSX.IntrinsicAttributes>(Comp: React.ComponentType<P>) => {
-    const EnhancedComp = (props: P) => {
-      return (
-        <context.Provider value={value}>{<Comp {...props} />}</context.Provider>
-      );
-    };
-    EnhancedComp.displayName = 'Xeno-connected-' + Comp.displayName;
-    return EnhancedComp;
-  };
 export const constrcutXeno = <T extends TXenoMessage>() => {
   const XenoContext = createContext<XenoContextType<T>>(
     null as unknown as XenoContextType<T>
@@ -30,7 +20,11 @@ export const constrcutXeno = <T extends TXenoMessage>() => {
   const useXeno = createXenoHook(XenoContext);
   const useXenoListener = createXenoListenerHook(XenoContext);
   const useXenoTrigger = createXenoTriggerHook(XenoContext);
-  const Enhancer = createContextEnhancer(XenoContext, { xeno });
+  const Enhancer = createContextEnhancer(
+    XenoContext,
+    { xeno },
+    'Xeno-connected-'
+  );
   return {
     XenoContext,
     xeno,
