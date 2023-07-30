@@ -10,3 +10,12 @@ const {
   useInstance,
   useUnionResolve,
 } = constructStore(container);
+
+export {
+  Injectable,
+  Instantiable,
+  unionResolver,
+  useInstance,
+  useUnionResolve,
+  container,
+};
