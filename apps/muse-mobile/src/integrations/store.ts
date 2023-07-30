@@ -9,6 +9,7 @@ const {
   unionResolver,
   useInstance,
   useUnionResolve,
+  enhancer,
 } = constructStore(container);
 
 export {
@@ -18,4 +19,5 @@ export {
   useInstance,
   useUnionResolve,
   container,
+  enhancer as storeEnhancer,
 };

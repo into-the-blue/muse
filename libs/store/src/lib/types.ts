@@ -27,11 +27,13 @@ export interface UnionResolver {
   (...targets: ClassLike<any>[]): any[];
 }
 
-export type StoreContextType = React.Context<{
+export type StoreContextValue = {
   container: Container;
   resolver: Resolver;
   unionResolver: UnionResolver;
-}>;
+};
+
+export type StoreContextType = React.Context<StoreContextValue>;
 
 export type InjectableConfig = {
   name?: string;

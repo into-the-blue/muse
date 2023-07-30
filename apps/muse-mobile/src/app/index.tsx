@@ -1,17 +1,10 @@
 import { RealmWrapper } from '../integrations/realm';
 import { sentryEnhancer } from '../integrations/sentry';
 import { Navigation } from '../integrations/navigation';
-import type { Enhancer } from '@muse/types';
 import { xenoEnhancer } from '../integrations/xeno';
+import { storeEnhancer } from '../integrations/store';
+import { composeEnhancers } from '@muse/utils';
 
-const composeEnhancers =
-  <P extends JSX.IntrinsicAttributes>(Comp: React.ComponentType<P>) =>
-  (...enhancers: Enhancer[]) => {
-    return enhancers.reduce(
-      (Comp, enhancer) => enhancer(Comp),
-      Comp
-    ) as React.ComponentType<P>;
-  };
 const App = () => {
   return (
     <RealmWrapper>
@@ -19,4 +12,8 @@ const App = () => {
     </RealmWrapper>
   );
 };
-export default composeEnhancers(App)(sentryEnhancer, xenoEnhancer);
+export default composeEnhancers(App)(
+  sentryEnhancer,
+  xenoEnhancer,
+  storeEnhancer
+);
