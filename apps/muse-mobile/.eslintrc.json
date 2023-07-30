@@ -1,6 +1,16 @@
 {
   "extends": ["plugin:@nx/react", "../../.eslintrc.json"],
-  "ignorePatterns": ["!**/*", ".expo", "node_modules", "web-build", "cache"],
+  "ignorePatterns": [
+    "!**/*",
+    ".expo",
+    "node_modules",
+    "web-build",
+    "cache",
+    "test-setup.ts"
+  ],
+  "parserOptions": {
+    "project": ["apps/muse-mobile/tsconfig.*?.json"]
+  },
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],

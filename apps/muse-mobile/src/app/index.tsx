@@ -1,7 +1,7 @@
 import { RealmWrapper } from '../integrations/realm';
 import { sentryEnhancer } from '../integrations/sentry';
 import { Navigation } from '../integrations/navigation';
-import { Enhancer } from '@muse/types';
+import type { Enhancer } from '@muse/types';
 import { xenoEnhancer } from '../integrations/xeno';
 
 const composeEnhancers =

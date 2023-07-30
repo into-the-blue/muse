@@ -23,9 +23,16 @@
     },
     {
       "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nx/typescript"],
+      "extends": [
+        "plugin:@nx/typescript",
+        "plugin:@typescript-eslint/recommended"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "plugins": ["@typescript-eslint"],
       "rules": {
-        "no-extra-boolean-cast": ["off"]
+        "no-extra-boolean-cast": ["off"],
+        "@typescript-eslint/consistent-type-imports": "error",
+        "@typescript-eslint/consistent-type-exports": "error"
       }
     },
     {
