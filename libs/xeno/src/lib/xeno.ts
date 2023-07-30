@@ -1,6 +1,6 @@
-import { ReplaySubject, of, from, Observable, Subject } from 'rxjs';
+import { ReplaySubject, of, from, type Observable, type Subject } from 'rxjs';
 import { catchError, mergeMap, switchMap, take } from 'rxjs/operators';
-import {
+import type {
   TFutureTask,
   TXenoMessage,
   XenoListener,

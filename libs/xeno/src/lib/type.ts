@@ -1,4 +1,4 @@
-import { ReplaySubject, ObservableInput } from 'rxjs';
+import type { ReplaySubject, ObservableInput } from 'rxjs';
 
 export type TFutureTask<P = unknown> = {
   params: P;

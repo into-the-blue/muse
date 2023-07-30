@@ -8,9 +8,6 @@
     "cache",
     "test-setup.ts"
   ],
-  "parserOptions": {
-    "project": ["apps/muse-mobile/tsconfig.*?.json"]
-  },
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],

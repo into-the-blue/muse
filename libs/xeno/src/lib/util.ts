@@ -1,4 +1,4 @@
-import { from, of, isObservable, ObservableInput } from 'rxjs';
+import { from, of, isObservable, type ObservableInput } from 'rxjs';
 export const isPromise = <T>(obj: T) => {
   return String(obj) === '[object Promise]';
 };

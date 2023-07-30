@@ -1,5 +1,5 @@
 import { constrcutXeno } from '../lib/construtor';
-import { TXenoMessage } from '../lib/type';
+import type { TXenoMessage } from '../lib/type';
 import { renderHook } from '@testing-library/react';
 jest.useFakeTimers();
 
