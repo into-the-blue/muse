@@ -1,2 +1,2 @@
-export * from './lib/common';
+export type { ClassLike, Enhancer } from './lib/common';
 export * from './mobile';

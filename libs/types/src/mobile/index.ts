@@ -1,1 +1,1 @@
-export * from './routeName';
+export { RouteNames } from './routeName';
