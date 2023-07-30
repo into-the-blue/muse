@@ -1,5 +1,6 @@
 import { Params, meanReversion } from './util';
-import { ReviewRating, Card, LearningState, Context } from './type';
+import type { Card, Context } from './type';
+import { ReviewRating, LearningState } from './type';
 
 const _initDifficulty = (rating: ReviewRating) => {
   const calculated = Math.max(Params.w[2] + Params.w[3] * (rating - 2), 1);

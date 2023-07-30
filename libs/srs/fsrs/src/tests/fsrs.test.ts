@@ -1,5 +1,6 @@
 import { reviewCard } from '../fsrs';
-import { Card, ReviewRating } from '../type';
+import type { Card} from '../type';
+import { ReviewRating } from '../type';
 import DATA1 from './it1.json';
 import DATA2 from './it2.json';
 import DATA3 from './it3.json';

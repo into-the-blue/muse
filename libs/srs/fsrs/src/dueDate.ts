@@ -1,5 +1,6 @@
 import { Params, addTime, getRatingMap } from './util';
-import { ReviewRating, Card, LearningState, Context } from './type';
+import type { Card, Context } from './type';
+import { ReviewRating, LearningState } from './type';
 
 const _getNextDueDateNew = (
   { stability }: Context,

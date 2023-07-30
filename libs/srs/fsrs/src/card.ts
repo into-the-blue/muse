@@ -1,4 +1,5 @@
-import { Card, ReviewRating, LearningState } from './type';
+import type { Card} from './type';
+import { ReviewRating, LearningState } from './type';
 export const getNewCard = (): Card => {
   return {
     due: new Date().toISOString(),

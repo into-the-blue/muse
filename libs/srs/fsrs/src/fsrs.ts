@@ -1,4 +1,5 @@
-import { Card, LearningState, ReviewRating, Context } from './type';
+import type { Card, Context } from './type';
+import { LearningState, ReviewRating } from './type';
 import { diffDays, getRatingMap, NEXT_STATE_MAP } from './util';
 import { getDifficulty, getStability } from './stabilityAndDifficulty';
 import { getNextDueDate } from './dueDate';
