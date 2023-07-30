@@ -22,6 +22,5 @@
       "@muse/xeno": ["libs/xeno/src/index.ts"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "tmp"]
 }
