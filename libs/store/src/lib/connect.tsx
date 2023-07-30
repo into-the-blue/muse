@@ -1,5 +1,5 @@
-import { BaseController } from './types';
-import { ClassLike } from '@muse/types';
+import type { BaseController } from './types';
+import type { ClassLike } from '@muse/types';
 import { observer } from 'mobx-react-lite';
 import React, { useEffect } from 'react';
 import { zip } from 'lodash';
