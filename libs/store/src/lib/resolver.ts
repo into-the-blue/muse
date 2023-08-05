@@ -3,6 +3,7 @@ import { Container } from 'inversify';
 import { getClassSymbol } from './decorators';
 import { SINGLETON_SYMBOL } from './constants';
 import type { Resolver, UnionResolver } from './types';
+import { isWeb } from '@muse/utils';
 
 const isClass = (target: new (...args: unknown[]) => unknown) => {
   return (
@@ -16,7 +17,9 @@ export const createResolver = (container: Container) => {
     target: ClassLike<T>,
     sharedContaienr?: Container
   ): T => {
-    if (!isClass(target)) throw new Error('Invalid target, expect Class');
+    if (isWeb() && !isClass(target)) {
+      throw new Error(`Invalid target, expect Class, but got: ${target}`);
+    }
     const identifier = getClassSymbol(target); // identifier of class
     const paramTypes = Reflect.getMetadata('design:paramtypes', target);
     if (!paramTypes?.length) {
