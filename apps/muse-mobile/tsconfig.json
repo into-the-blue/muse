@@ -10,7 +10,9 @@
     "strict": true,
     "composite": true,
     "declaration": true,
-    "preserveSymlinks": true
+    "preserveSymlinks": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
   },
   "files": ["../../node_modules/@nx/expo/typings/svg.d.ts"],
   "include": [],
