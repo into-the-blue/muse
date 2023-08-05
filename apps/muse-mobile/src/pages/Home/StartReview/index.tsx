@@ -3,21 +3,24 @@ import { Text } from '@muse/ui-native';
 import { useUnionResolve } from '../../../integrations/store';
 import { StartReviewController } from '../../../modules/controllers';
 import { StartReviewStore } from '../../../modules/stores';
-import { StartReviewService } from '../../../modules/services';
 import { observer } from 'mobx-react-lite';
 
-export const StartReview = observer(() => {
+type StartReviewProps = {
+  count: number;
+};
+
+export const StartReview = observer(({ count }: StartReviewProps) => {
   const [store, controller] = useUnionResolve(
     StartReviewStore,
-    StartReviewController,
-    StartReviewService
+    StartReviewController
   );
 
   return (
     <View>
       <Text>{'start review'}</Text>
       <Text>{`count: ${store.count}`}</Text>
-      <Button title={'increase'} onPress={controller.onClickIncrease} />
+      <Text>{`count2: ${count}`}</Text>
+      <Button title={'increasee'} onPress={controller.onClickIncrease} />
     </View>
   );
 });
