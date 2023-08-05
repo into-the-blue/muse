@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { RealmWrapper } from '../integrations/realm';
 import { sentryEnhancer } from '../integrations/sentry';
 import { Navigation } from '../integrations/navigation';
