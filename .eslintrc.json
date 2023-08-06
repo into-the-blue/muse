@@ -35,7 +35,8 @@
       "rules": {
         "no-extra-boolean-cast": ["off"],
         "@typescript-eslint/consistent-type-imports": "error",
-        "@typescript-eslint/consistent-type-exports": "error"
+        "@typescript-eslint/consistent-type-exports": "error",
+        "@typescript-eslint/no-var-requires": "off"
       }
     },
     {

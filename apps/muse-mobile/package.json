@@ -11,6 +11,7 @@
     "@testing-library/jest-native": "5.4.2",
     "@testing-library/react-native": "12.1.2",
     "expo": "48.0.19",
+    "expo-av": "^13.2.1",
     "expo-file-system": "^15.2.2",
     "expo-splash-screen": "0.18.2",
     "expo-status-bar": "~1.4.4",
@@ -22,8 +23,8 @@
     "react-native-svg-transformer": "1.0.0",
     "react-native-web": "~0.18.12",
     "realm": "^11.9.0",
-    "twrnc": "^3.6.1",
-    "rxjs": "^7.8.0"
+    "rxjs": "^7.8.0",
+    "twrnc": "^3.6.1"
   },
   "scripts": {
     "postinstall": "cd ../../ && pnpm exec nx sync-deps muse-mobile && pnpm exec nx ensure-symlink muse-mobile",

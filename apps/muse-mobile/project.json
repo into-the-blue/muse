@@ -21,8 +21,7 @@
       "options": {
         "platform": "ios",
         "install": false,
-        "clean": false,
-        "buildCache": true
+        "clean": false
       }
     },
     "run-android": {

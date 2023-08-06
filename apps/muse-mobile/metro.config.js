@@ -10,6 +10,7 @@ module.exports = (async () => {
   defaultConfig.resolver.assetExts = defaultConfig.resolver.assetExts.filter(
     (ext) => ext !== 'svg'
   );
+  defaultConfig.resolver.assetExts.push('mp3');
   defaultConfig.resolver.sourceExts.push('svg');
   const config = withNxMetro(defaultConfig, {
     // Change this to true to see debugging info.
