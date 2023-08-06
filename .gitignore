@@ -129,3 +129,5 @@ cache/
 
 
 apps/muse-mobile-e2e/artifacts
+
+app.json

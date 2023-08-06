@@ -89,6 +89,7 @@
     "@realm/react": "^0.4.3",
     "@sentry/react-native": "^5.1.1",
     "expo": "48.0.19",
+    "expo-av": "^13.2.1",
     "expo-file-system": "^15.2.2",
     "expo-splash-screen": "0.18.2",
     "expo-status-bar": "~1.4.4",
