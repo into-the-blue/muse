@@ -11,13 +11,15 @@ export const AudioPlayer = ({ audioSource }: AudioPlayerProps) => {
   const [audio, setAudio] = useState<Audio.Sound | null>(null);
 
   const playSound = async () => {
+    if (audio) {
+      await audio.replayAsync();
+      return;
+    }
     const { sound, status } = await Audio.Sound.createAsync(audioSource, {
-      //   shouldPlay: true,
+      // shouldPlay: true,
     });
     setAudio(sound);
-    const res = await sound.setStatusAsync({ shouldPlay: true });
-    // console.warn('sssss');
-    // await sound.unloadAsync();
+    await sound.playAsync();
   };
 
   useEffect(() => {
