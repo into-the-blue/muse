@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import type { InjectableConfig } from './types';
 import type { ClassLike } from '@muse/types';
-import type { Container} from 'inversify';
+import type { Container } from 'inversify';
 import { injectable } from 'inversify';
 import {
   USE_SYMBOL_AS_IDENTIFIER,
@@ -18,7 +18,10 @@ const getClassIdentifier = (target: ClassLike<any>, name?: string) => {
 
 export const getClassSymbol = (target: ClassLike<any>) => {
   if (!USE_SYMBOL_AS_IDENTIFIER) return target;
-  const storedSymbol = Reflect.getMetadata(CLASS_SYMBOL, target);
+  const storedSymbol: symbol | string = Reflect.getMetadata(
+    CLASS_SYMBOL,
+    target
+  );
   return storedSymbol ?? Symbol.for(target.name);
 };
 
