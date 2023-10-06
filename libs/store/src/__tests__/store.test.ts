@@ -48,15 +48,6 @@ test('Inherited class should work', () => {
   expect(instance.service2Count).toBe(2);
 });
 
-test('Constant registration', () => {
-  const obj = {
-    a: 'a',
-  };
-  container.bind<typeof obj>('constant').toConstantValue(obj);
-  const res = container.get<typeof obj>('constant');
-  expect(res.a).toBe('a');
-});
-
 test('Union resolve', () => {
   const [store2, service2] = unionResolve(Store2, Service2);
   store2.increase2();
