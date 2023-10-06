@@ -10,7 +10,7 @@ import {
 } from './constructor.util';
 import { renderHook } from '@testing-library/react';
 
-describe('constructor', () => {
+describe('store constructor', () => {
   afterEach(() => {
     if (container.isBound('store1')) container.unbind('store1');
     if (container.isBound('store2')) container.unbind('store2');
