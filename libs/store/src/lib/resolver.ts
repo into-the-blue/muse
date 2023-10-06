@@ -2,25 +2,23 @@ import type { ClassLike } from '@muse/types';
 import { Container } from 'inversify';
 import { getClassSymbol } from './decorators';
 import { SINGLETON_SYMBOL } from './constants';
-import type { Resolver, UnionResolver } from './types';
+import type { Resolver, UnionResolver, ResolveTarget } from './types';
 import { isWeb } from '@muse/utils';
-
-const isClass = (target: new (...args: unknown[]) => unknown) => {
-  return (
-    typeof target === 'function' &&
-    /^class\s/.test(target.prototype.constructor.toString())
-  );
-};
+import { getClassFromTarget, isClass } from './util';
 
 export const createResolver = (container: Container) => {
   const resolver: Resolver = <T>(
     target: ClassLike<T>,
-    sharedContaienr?: Container
+    options: {
+      sharedContainer?: Container;
+      id?: string;
+    } = {}
   ): T => {
+    const { sharedContainer, id } = options;
     if (isWeb() && !isClass(target)) {
       throw new Error(`Invalid target, expect Class, but got: ${target}`);
     }
-    const identifier = getClassSymbol(target); // identifier of class
+    const identifier = id ?? getClassSymbol(target); // identifier of class
     const paramTypes: any[] = Reflect.getMetadata('design:paramtypes', target);
     if (!paramTypes?.length) {
       // no parameters, create an instance
@@ -29,18 +27,20 @@ export const createResolver = (container: Container) => {
         const isSingleton = Reflect.getMetadata(SINGLETON_SYMBOL, target);
         const instance = container.get(identifier) as T;
         // if target is a singleton or no shared container exists, return instance
-        if (isSingleton || !sharedContaienr) return instance;
+        if (isSingleton || !sharedContainer) return instance;
         // for non-singleton class, register instance, return instance from shared container
-        if (!sharedContaienr.isBound(identifier)) {
-          sharedContaienr.bind(identifier).toConstantValue(instance);
+        if (!sharedContainer.isBound(identifier)) {
+          sharedContainer.bind(identifier).toConstantValue(instance);
         }
-        return sharedContaienr.get(identifier);
+        return sharedContainer.get(identifier);
       }
       return new target();
     }
 
     const args: unknown[] = paramTypes.map((param) =>
-      resolver(param, sharedContaienr)
+      resolver(param, {
+        sharedContainer,
+      })
     );
     return new target(...args);
   };
@@ -48,9 +48,15 @@ export const createResolver = (container: Container) => {
 };
 
 export const createUnionResolver = (resolve: Resolver) => {
-  const unionResolver: UnionResolver = (...targets: ClassLike<any>[]) => {
+  const unionResolver: UnionResolver = (...targets: ResolveTarget[]) => {
     const sharedContainer = new Container();
-    return targets.map((target) => resolve(target, sharedContainer));
+    return targets.map((target) => {
+      const [targetClass, id] = getClassFromTarget(target);
+      return resolve(targetClass, {
+        sharedContainer,
+        id,
+      });
+    });
   };
   return unionResolver;
 };

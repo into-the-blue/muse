@@ -11,20 +11,24 @@ export class BaseController {
 
 export type Resolver = <T>(
   target: ClassLike<T>,
-  sharedContaienr?: Container
+  options?: {
+    sharedContainer?: Container;
+    id?: string;
+  }
 ) => T;
 
 type ForArray<T> = T extends unknown[]
   ? T extends [infer Item, ...infer Rest]
-    ? [ExtractClass<Item>, ...ForArray<Rest>]
+    ? [ExtractClass<GetTargetClass<Item>>, ...ForArray<Rest>]
     : T
   : T;
 
+type GetTargetClass<T> = T extends { class: infer C } ? C : T;
 type ExtractClass<T> = T extends new (...args: any[]) => infer R ? R : never;
 
 export interface UnionResolver {
-  <T extends [...ClassLike<any>[]]>(...targets: [...T]): ForArray<T>;
-  (...targets: ClassLike<any>[]): any[];
+  <T extends [...ResolveTarget[]]>(...targets: [...T]): ForArray<T>;
+  (...targets: ResolveTarget[]): any[];
 }
 
 export type StoreContextValue = {
@@ -39,3 +43,10 @@ export type InjectableConfig = {
   name?: string;
   singleton?: boolean;
 };
+
+export type ResolveTarget<T = any> =
+  | ClassLike<T>
+  | {
+      class: ClassLike<T>;
+      id: string;
+    };

@@ -1,16 +1,19 @@
 import { useContext, useMemo, useRef } from 'react';
-import type { StoreContextType, UnionResolver } from './types';
-import type { ClassLike } from '@muse/types';
+import type { StoreContextType, UnionResolver, ResolveTarget } from './types';
+import { getClassFromTarget } from './util';
 
 export const createUseSingletonHook = (context: StoreContextType) => {
-  const useSingleton = <T>(storeClass: ClassLike<T>) => {
+  const useSingleton = <T>(target: ResolveTarget<T>) => {
     const { resolver } = useContext(context);
     const _result = useRef<T>();
     const result = useMemo(() => {
       if (_result.current) return _result.current;
-      _result.current = resolver(storeClass);
+      const [storeClass, id] = getClassFromTarget(target);
+      _result.current = resolver(storeClass, {
+        id,
+      });
       return _result.current;
-    }, [storeClass, resolver]);
+    }, [target, resolver]);
     return result;
   };
 
