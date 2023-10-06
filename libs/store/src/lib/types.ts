@@ -14,6 +14,7 @@ export type Resolver = <T>(
   options?: {
     sharedContainer?: Container;
     id?: string;
+    idMapper?: Map<ClassLike, string>
   }
 ) => T;
 

@@ -29,3 +29,29 @@ test('useUnionResolve should work', () => {
   service2_1.invoke();
   expect(store2_1.count2).toBe(4);
 });
+
+test('resolve with id', () => {
+  const render = renderHook(() =>
+    useInstance({
+      class: Store2,
+      id: 'store2',
+    })
+  );
+  const store2 = render.result.current;
+  store2.increase2();
+  expect(store2.count2).toBe(2);
+  render.unmount();
+  const render2 = renderHook(() =>
+    useUnionResolve(
+      {
+        class: Store2,
+        id: 'store2',
+      },
+      Service2
+    )
+  );
+  const [store2_1, service2_1] = render2.result.current;
+  service2_1.invoke();
+  expect(store2_1.count2).toBe(4);
+  expect(store2.count2).toBe(4);
+});
