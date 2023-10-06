@@ -21,7 +21,7 @@ export const createResolver = (container: Container) => {
       throw new Error(`Invalid target, expect Class, but got: ${target}`);
     }
     const identifier = getClassSymbol(target); // identifier of class
-    const paramTypes = Reflect.getMetadata('design:paramtypes', target);
+    const paramTypes: any[] = Reflect.getMetadata('design:paramtypes', target);
     if (!paramTypes?.length) {
       // no parameters, create an instance
       const isBound = container.isBound(identifier);
@@ -39,7 +39,7 @@ export const createResolver = (container: Container) => {
       return new target();
     }
 
-    const args: unknown[] = (paramTypes as any[]).map((param) =>
+    const args: unknown[] = paramTypes.map((param) =>
       resolver(param, sharedContaienr)
     );
     return new target(...args);
