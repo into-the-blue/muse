@@ -7,7 +7,7 @@ const container = new Container();
 const { Injectable, Instantiable, useInstance, useUnionResolve } =
   constructStore(container);
 
-export { useInstance, useUnionResolve };
+export { useInstance, useUnionResolve, container };
 
 @Injectable({ singleton: true })
 export class Store1 {
