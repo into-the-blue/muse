@@ -1,4 +1,4 @@
-import { View, Button } from 'react-native';
+import { View, Button, StyleSheet } from 'react-native';
 import { Text } from '@muse/ui-native';
 import { useUnionResolve } from '../../../integrations/store';
 import { StartReviewController } from '../../../modules/controllers';
@@ -6,21 +6,28 @@ import { StartReviewStore } from '../../../modules/stores';
 import { observer } from 'mobx-react-lite';
 
 type StartReviewProps = {
-  count: number;
+  //
 };
 
-export const StartReview = observer(({ count }: StartReviewProps) => {
+export const StartReview = observer(() => {
   const [store, controller] = useUnionResolve(
     StartReviewStore,
     StartReviewController
   );
 
   return (
-    <View>
+    <View style={styles.container}>
       <Text>{'start review'}</Text>
-      <Text>{`count: ${store.count}`}</Text>
-      <Text>{`count2: ${count}`}</Text>
-      <Button title={'increasee'} onPress={controller.onClickIncrease} />
     </View>
   );
+});
+
+const styles = StyleSheet.create({
+  container: {
+    borderWidth: 1,
+    borderColor: 'red',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 32
+  },
 });

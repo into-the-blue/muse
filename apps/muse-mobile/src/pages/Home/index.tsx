@@ -1,18 +1,33 @@
-import React, { useState } from 'react';
-import { SafeAreaView, StyleSheet, StatusBar, Button } from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  StatusBar,
+  Button,
+  ScrollView,
+  View,
+} from 'react-native';
 import { StartReview } from './StartReview';
-import { AudioPlayer } from '../../components';
+import { NewInstrument } from './NewInstrument';
 
 export const Home = () => {
-  const [count, setCount] = useState(1);
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <StartReview count={count} />
-        <Button onPress={() => setCount(count + 1)} title={'Click3'} />
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+        <ScrollView>
+          <View style={styles.container}>
+            <StartReview />
+            <NewInstrument />
+          </View>
+        </ScrollView>
       </SafeAreaView>
     </>
   );
 };
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#fff',
+    gap: 16,
+    padding: 16,
+  },
+});
