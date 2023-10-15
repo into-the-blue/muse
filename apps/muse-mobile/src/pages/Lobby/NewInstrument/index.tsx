@@ -1,4 +1,4 @@
-import { View, StyleSheet, TouchableHighlight } from 'react-native';
+import { StyleSheet, TouchableHighlight } from 'react-native';
 import { Text } from '@muse/ui-native';
 import { useNavigation } from '@react-navigation/native';
 
