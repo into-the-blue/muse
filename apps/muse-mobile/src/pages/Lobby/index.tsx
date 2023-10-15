@@ -9,7 +9,7 @@ import {
 import { StartReview } from './StartReview';
 import { NewInstrument } from './NewInstrument';
 
-export const Home = () => {
+export const Lobby = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />

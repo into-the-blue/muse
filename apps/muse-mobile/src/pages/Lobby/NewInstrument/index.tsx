@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 export const NewInstrument = () => {
   const navigation = useNavigation();
   const onPressNewInstrument = () => {
-    //
+    navigation.navigate('SelectNotes');
   };
   return (
     <TouchableHighlight onPress={onPressNewInstrument} style={styles.container}>
