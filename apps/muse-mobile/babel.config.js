@@ -4,7 +4,8 @@ module.exports = function (api) {
     plugins: [
       'babel-plugin-transform-typescript-metadata',
       ['@babel/plugin-proposal-decorators', { legacy: true }],
-      // ['@babel/plugin-proposal-class-properties', { loose: true }], // @TODO this plugin will disable mixins
+      // ['@babel/plugin-proposal-class-properties', { loose: true }], // @TODO: this plugin will disable mixins
+      'react-native-reanimated/plugin',
     ],
     presets: ['babel-preset-expo'],
   };
