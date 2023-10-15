@@ -1,6 +1,7 @@
 import { Text } from '@muse/ui-native';
-import { SafeAreaView, Button } from 'react-native';
+import { Button } from 'react-native';
 import Animated, { useSharedValue, withSpring } from 'react-native-reanimated';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export const SelectNotes = () => {
   const width = useSharedValue(100);

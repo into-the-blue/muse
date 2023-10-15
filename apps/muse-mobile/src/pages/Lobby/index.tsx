@@ -1,13 +1,7 @@
-import {
-  SafeAreaView,
-  StyleSheet,
-  StatusBar,
-  Button,
-  ScrollView,
-  View,
-} from 'react-native';
+import { StyleSheet, StatusBar, ScrollView, View } from 'react-native';
 import { StartReview } from './StartReview';
 import { NewInstrument } from './NewInstrument';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export const Lobby = () => {
   return (
