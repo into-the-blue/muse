@@ -139,6 +139,9 @@ importers:
       '@nx/linter':
         specifier: 16.4.2
         version: 16.4.2(eslint@8.15.0)(nx@16.4.2)(typescript@5.1.6)
+      '@nx/node':
+        specifier: 16.4.2
+        version: 16.4.2(@types/node@18.11.18)(eslint@8.15.0)(nx@16.4.2)(ts-node@10.9.1)(typescript@5.1.6)
       '@nx/react':
         specifier: 16.4.2
         version: 16.4.2(eslint@8.15.0)(nx@16.4.2)(typescript@5.1.6)(webpack@5.85.0)
@@ -3437,6 +3440,25 @@ packages:
       - verdaccio
     dev: true
 
+  /@nrwl/node@16.4.2(@types/node@18.11.18)(eslint@8.15.0)(nx@16.4.2)(ts-node@10.9.1)(typescript@5.1.6):
+    resolution: {integrity: sha512-XsJhNWZXu62P176kFxF7AXxEhvcD4LJoSz2aNlR//2WKrsDtayg5HvE7zJGs/QS08bxHTBVIBc3UqIqipb/wkg==}
+    dependencies:
+      '@nx/node': 16.4.2(@types/node@18.11.18)(eslint@8.15.0)(nx@16.4.2)(ts-node@10.9.1)(typescript@5.1.6)
+    transitivePeerDependencies:
+      - '@babel/traverse'
+      - '@swc-node/register'
+      - '@swc/core'
+      - '@types/node'
+      - debug
+      - eslint
+      - node-notifier
+      - nx
+      - supports-color
+      - ts-node
+      - typescript
+      - verdaccio
+    dev: true
+
   /@nrwl/react@16.4.2(eslint@8.15.0)(nx@16.4.2)(typescript@5.1.6)(webpack@5.85.0):
     resolution: {integrity: sha512-LuiSnHyCzKyerwuDkzb6yMp7eVu794KcHzMhrdIjlufVEdgUgjUWsois2PZ1/6B2Yxjpkwmxv92L44CAEjqq8Q==}
     dependencies:
@@ -3764,6 +3786,31 @@ packages:
       - debug
       - nx
       - supports-color
+      - typescript
+      - verdaccio
+    dev: true
+
+  /@nx/node@16.4.2(@types/node@18.11.18)(eslint@8.15.0)(nx@16.4.2)(ts-node@10.9.1)(typescript@5.1.6):
+    resolution: {integrity: sha512-KsJBIO80VbKQeiJD6TleH5LD1Be9BrB3pfyJETYsu1TcQhBf2LeTkzN4Es/7pJwHFO84kHWV7kHgi0C4mKLtfQ==}
+    dependencies:
+      '@nrwl/node': 16.4.2(@types/node@18.11.18)(eslint@8.15.0)(nx@16.4.2)(ts-node@10.9.1)(typescript@5.1.6)
+      '@nx/devkit': 16.4.2(nx@16.4.2)
+      '@nx/jest': 16.4.2(@types/node@18.11.18)(nx@16.4.2)(ts-node@10.9.1)(typescript@5.1.6)
+      '@nx/js': 16.4.2(nx@16.4.2)(typescript@5.1.6)
+      '@nx/linter': 16.4.2(eslint@8.15.0)(nx@16.4.2)(typescript@5.1.6)
+      '@nx/workspace': 16.4.2
+      tslib: 2.5.0
+    transitivePeerDependencies:
+      - '@babel/traverse'
+      - '@swc-node/register'
+      - '@swc/core'
+      - '@types/node'
+      - debug
+      - eslint
+      - node-notifier
+      - nx
+      - supports-color
+      - ts-node
       - typescript
       - verdaccio
     dev: true
