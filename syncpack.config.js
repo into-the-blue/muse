@@ -4,10 +4,10 @@
 const config = {
   dependencyTypes: ['dev', 'prod', 'peer'],
   source: [
+    'package.json',
     'packages/*/package.json',
     'apps/*/package.json',
     'libs/*/package.json',
-    'package.json',
   ],
   semverGroups: [
     {
@@ -15,20 +15,11 @@ const config = {
       dependencies: ['**'],
       packages: ['muse'],
     },
-    {
-      packages: ['@muse/*'],
-      isIgnored: true,
-      dependencies: ['**'],
-    },
   ],
   versionGroups: [
     {
-      packages: ['@muse/note-spider'],
-      dependencies: ['**'],
-      isIgnored: true,
-    },
-    {
-      packages: ['@muse/*', 'muse'],
+      label: 'All package versions should be defined in the root package.json',
+      packages: ['**', '!muse'],
       dependencies: ['**'],
       snapTo: ['muse'],
     },
