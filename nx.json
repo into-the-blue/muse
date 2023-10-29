@@ -1,6 +1,9 @@
 {
   "extends": "nx/presets/npm.json",
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "affected": {
+    "defaultBase": "main"
+  },
   "pluginsConfig": {
     "@nx/js": {
       "analyzeSourceFiles": false
@@ -16,7 +19,8 @@
           "test",
           "e2e",
           "build-storybook"
-        ]
+        ],
+        "cacheDirectory": "node_modules/.cache/nx"
       }
     }
   },
