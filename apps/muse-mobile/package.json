@@ -25,7 +25,11 @@
     "react-native-web": "~0.18.12",
     "realm": "^11.9.0",
     "rxjs": "^7.8.0",
-    "twrnc": "^3.6.1"
+    "twrnc": "^3.6.1",
+    "mobx": "*",
+    "mobx-react-lite": "*",
+    "inversify": "*",
+    "reflect-metadata": "*"
   },
   "scripts": {
     "postinstall": "cd ../../ && pnpm exec nx sync-deps muse-mobile && pnpm exec nx ensure-symlink muse-mobile",
