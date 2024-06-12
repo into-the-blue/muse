@@ -1,1 +1,1 @@
-export { RouteNames } from './routeName';
+export type { NavigationRouterList } from './navigation';

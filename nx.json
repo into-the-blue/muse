@@ -1,4 +1,14 @@
 {
+  "extends": "nx/presets/npm.json",
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "affected": {
+    "defaultBase": "main"
+  },
+  "pluginsConfig": {
+    "@nx/js": {
+      "analyzeSourceFiles": false
+    }
+  },
   "tasksRunnerOptions": {
     "default": {
       "runner": "nx/tasks-runners/default",
@@ -9,12 +19,14 @@
           "test",
           "e2e",
           "build-storybook"
-        ]
+        ],
+        "cacheDirectory": "node_modules/.cache/nx"
       }
     }
   },
-  "extends": "nx/presets/npm.json",
-  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "namedInputs": {
+    "src": ["{projectRoot}/src"]
+  },
   "targetDefaults": {
     "test": {
       "inputs": ["default", "^default", "{workspaceRoot}/jest.preset.js"]

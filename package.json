@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "nx": "nx",
     "deps:sync": "syncpack fix-mismatches",
     "deps:list-mismatches": "syncpack list-mismatches"
   },
@@ -16,11 +15,13 @@
     "@babel/runtime": "7.20.13",
     "@expo/cli": "0.7.3",
     "@nx/detox": "16.4.2",
+    "@nx/esbuild": "16.4.2",
     "@nx/eslint-plugin": "16.4.2",
     "@nx/expo": "16.4.2",
     "@nx/jest": "16.4.2",
     "@nx/js": "16.4.2",
     "@nx/linter": "16.4.2",
+    "@nx/node": "16.4.2",
     "@nx/react": "16.4.2",
     "@nx/vite": "16.4.2",
     "@testing-library/jest-dom": "5.16.5",
@@ -28,6 +29,7 @@
     "@testing-library/react": "13.4.0",
     "@testing-library/react-native": "12.1.2",
     "@types/jest": "29.5.2",
+    "@types/jsdom": "^21.1.4",
     "@types/metro-resolver": "^0.76.1",
     "@types/node": "18.11.18",
     "@types/react": "18.2.13",
@@ -45,6 +47,7 @@
     "babel-preset-expo": "~9.3.0",
     "detox": "20.9.1",
     "eas-cli": "3.13.3",
+    "esbuild": "^0.17.17",
     "eslint": "~8.15.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-import": "2.27.5",
@@ -56,6 +59,7 @@
     "jest": "29.5.0",
     "jest-circus": "^29.5.0",
     "jest-environment-jsdom": "29.5.0",
+    "jest-environment-node": "^29.4.1",
     "jest-expo": "~48.0.2",
     "jest-react-native": "18.0.0",
     "metro": "0.74.1",
@@ -67,7 +71,7 @@
     "nx": "16.4.2",
     "prettier": "^2.6.2",
     "rxjs": "^7.8.0",
-    "syncpack": "^10.6.1",
+    "syncpack": "^11.2.1",
     "ts-jest": "29.1.0",
     "ts-node": "10.9.1",
     "tslib": "^2.3.0",
@@ -76,11 +80,6 @@
     "vite-tsconfig-paths": "^4.2.0",
     "vitest": "^0.32.0"
   },
-  "workspaces": [
-    "packages/*",
-    "apps/*",
-    "libs/*"
-  ],
   "dependencies": {
     "@expo/metro-config": "0.7.1",
     "@react-native-async-storage/async-storage": "^1.18.1",
@@ -88,12 +87,16 @@
     "@react-navigation/native-stack": "^6.9.12",
     "@realm/react": "^0.4.3",
     "@sentry/react-native": "^5.1.1",
+    "axios": "^1.5.1",
+    "cheerio": "1.0.0-rc.12",
     "expo": "48.0.19",
     "expo-av": "^13.2.1",
     "expo-file-system": "^15.2.2",
     "expo-splash-screen": "0.18.2",
     "expo-status-bar": "~1.4.4",
+    "htmlparser2": "^9.0.0",
     "inversify": "^6.0.1",
+    "jsdom": "^22.1.0",
     "lodash": "^4.17.21",
     "mobx": "^6.8.0",
     "mobx-react-lite": "^3.4.1",
@@ -101,6 +104,7 @@
     "react-dom": "18.2.0",
     "react-native": "0.71.8",
     "react-native-config": "^1.5.1",
+    "react-native-reanimated": "^3.5.4",
     "react-native-safe-area-context": "^4.5.0",
     "react-native-screens": "^3.20.0",
     "react-native-svg": "13.4.0",
@@ -110,14 +114,5 @@
     "reflect-metadata": "^0.1.13",
     "styled-components": "^5.3.9",
     "twrnc": "^3.6.1"
-  },
-  "pnpm": {
-    "overrides": {
-      "lodash": "$lodash",
-      "rxjs": "$rxjs",
-      "ts-jest": "$ts-jest",
-      "typescript": "$typescript",
-      "ts-node": "$ts-node"
-    }
   }
 }

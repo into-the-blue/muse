@@ -3,6 +3,14 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/muse-mobile/src",
   "projectType": "application",
+  "implicitDependencies": [
+    "store",
+    "xeno",
+    "types",
+    "utils",
+    "ui-native",
+    "srs"
+  ],
   "targets": {
     "start": {
       "executor": "@nx/expo:start",
